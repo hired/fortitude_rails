@@ -1,0 +1,19 @@
+%header.container--fixed-top.fluid-container
+  %nav.navigationbar
+    .container
+      .navigationbar__header
+        %a.navigationbar__header__logo{:href => root_path, :target => "_self"}
+          %h1.text-white-light Fortitude Rails
+      .navigationbar__toggle
+        %img.icon.icon--burger{:alt => "Menu", :src => image_path('spacer.gif')}/
+        %input.navigationbar__toggle__helper{:type => "checkbox"}/
+        %ul.navigationbar__navigation
+          %li.navigationbar__item
+            %a.navigationbar__link{:href => getting_started_path, :target => '_self'} Getting Started
+          %li.navigationbar__item
+            %a.navigationbar__link{:href => docs_path, :target => '_self'} Docs
+          %li.navigationbar__item
+            %a.navigationbar__link{:href => "#", :target => "_self"} Component Generator
+
+          %li.navigationbar__item
+            %a.navigationbar__link{:href => '#', :target => '_self'} Customization
