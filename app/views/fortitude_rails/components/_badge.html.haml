@@ -1,0 +1,34 @@
+.layout__item><
+  %h2.text-black-light.xs-beta.xs-mbh0.xs-mth1 Badges
+  %hr.text-gray-light.xs-pth0.xs-mb1
+  %p.xs-mbh0 We have lots of cool badges and they are pretty.
+  %pre
+    %code.haml
+      :preserve
+            .badge                       // can be applied to %a or %span
+            .badge--large                // add to make a larger badge
+            .badge--small                // add to make a smaller badge
+            .badge--rounded              // add semi-rounded edges to badge
+            .badge--pill                 // add full-rounded edges to badge
+            .badge--varient              // any one of the style varients listed below
+
+            // examples
+            %span.badge.badge--large.badge--red                     // larger red badge
+            %span.badge.badge--full.badge--large                    // big badge
+            %span.badge.badge--full.badge--small.badge--primary     // big badge w/ primary color
+            %span.badge.badge--full.badge--blue--indicator.xs-delta // tiny blue indicator
+            %span.badge.badge--full.badge--red--indicator.xs-alpha  // huge red indicator
+
+.layout__item><
+  %hr.text-gray-light.xs-pth0.xs-mb2
+  %h3.xs-gamma.xs-mbh0.xs-mb1 Default
+  .layout.xs-mb1
+    - theme_intents.each do |intent|
+      .layout__item.sm-4of12><
+        .layout
+          .layout__item.xs-6of12.sm-12of12><
+            %span.badge.badge--full{class: "badge--#{intent}"} --#{intent}
+          .layout__item.xs-6of12.sm-12of12><
+            %span.badge.badge--full.xs-delta{class: "badge--#{intent}--indicator"} •
+            %span --indicator
+

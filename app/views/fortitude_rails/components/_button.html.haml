@@ -1,0 +1,41 @@
+.layout__item.md-mb3><
+  %h2.text-black-light.xs-beta.xs-mbh0.xs-mth1 Buttons
+  %hr.text-gray-light.xs-pth0.xs-mb1
+  %p.xs-mbh0 We have lots of cool buttons and they are pretty.
+  %pre
+    %code.haml
+      :preserve
+            .button                       // can be applied to %button, %input or %a
+            .button--full                 // add to set button to full width instead of content width
+                                          // you will almost always want to use this
+            .button--large                // add to make a larger button
+            .button--small                // add to make a smaller button
+            .button--varient              // any one of the style varients listed below
+
+            // examples
+            %a.button.button--large.button--error                     // a larger error button
+            %button.button.button--full.button--large                 // A big button
+            %button.button.button--full.button--small.button--primary // A big button w/ primary color
+
+.layout__item.md-6of12><
+  %h3.xs-gamma.xs-mbh0.xs-mb1 Default
+  .layout.xs-mb1
+    - theme_intents.each do |intent|
+      .layout__item.sm-4of12><
+        .layout
+          .layout__item.xs-6of12.sm-12of12><
+            %button.button.button--full{class: "button--#{intent}"} --#{intent}
+          .layout__item.xs-6of12.sm-12of12><
+            %button.button.button--full{class: "button--#{intent}", disabled: true} Disabled
+
+.layout__item.md-6of12><
+  %h3.xs-gamma.xs-mbh0.xs-mb1 Small
+  .layout.xs-mb1
+    - theme_intents.each do |intent|
+      .layout__item.sm-4of12><
+        .layout
+          .layout__item.xs-6of12.sm-12of12><
+            %button.button.button--full.button--small{class: "button--#{intent}"} --#{intent}
+          .layout__item.xs-6of12.sm-12of12><
+            %button.button.button--full.button--small{class: "button--#{intent}", disabled: true} Disabled
+
