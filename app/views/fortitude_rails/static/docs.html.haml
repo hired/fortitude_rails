@@ -11,5 +11,5 @@
 
     .layout__item.sm-8of12.md-9of12><
       - theme_components.each do |component_name|
-        .layout.xs-mb2{id: component_name.pluralize}
+        .box.xs-mb2{id: component_name.pluralize}
           = render "fortitude_rails/components/#{component_name}" rescue "<h2>#{component_name} documentation not found.</h2>".html_safe
