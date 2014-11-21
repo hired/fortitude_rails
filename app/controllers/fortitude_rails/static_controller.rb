@@ -4,15 +4,12 @@ class FortitudeRails::StaticController < FortitudeRails::ApplicationController
   end
 
   def component_generator
-
   end
 
   def customization
   end
 
   def getting_started
-
   end
-
 
 end
