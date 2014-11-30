@@ -1,4 +1,5 @@
-require "fortitude_rails/engine"
+require 'haml-rails'
+require 'fortitude_rails/engine'
 
 module FortitudeRails
   mattr_accessor :theme_intents

@@ -1,0 +1,33 @@
+# Logs and databases #
+######################
+*.log
+*.sqlite
+*.sqlite3
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*.swp
+*.rbc
+
+# Rails #
+#########
+*.rbc
+capybara-*.html
+.rspec
+spec/dummy/tmp
+spec/dummy/public/system
+spec/tmp
+**.orig
+rerun.txt
+pickle-email-*.html
+/.bundle
+/vendor/bundle
+/vendor/assets/bower_components
+/.sass-cache
