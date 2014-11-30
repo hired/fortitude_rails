@@ -13,12 +13,4 @@
 
 ActiveRecord::Schema.define(version: 20141111000221) do
 
-  create_table "hemmingway_pages", force: true do |t|
-    t.string   "url"
-    t.string   "locale"
-    t.text     "html"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
 end
