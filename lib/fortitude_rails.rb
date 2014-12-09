@@ -19,30 +19,30 @@ module FortitudeRails
   def self.theme_components
     @@theme_components ||= %w(
       badge
-      bare-list
-      block-list
+      bare_list
+      block_list
       box
       button
       container
       element
       flag
       flashbar
-      fluid-container
+      fluid_container
       form
       inline-list
       input
       layout
-      list-navigation
+      list_navigation
       media
       modal
       navigationbar
       shade
       table
       tabs
-      tabs-navigation
+      tabs_navigation
       tooltip
       typography
-      ui-list
+      ui_list
       wings
       utilities
     )

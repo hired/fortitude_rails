@@ -1,0 +1,51 @@
+.layout__item.xs-mb2><
+  %h2.text-black-light.xs-beta.xs-mbh0 Tabs-Navigation
+  %hr.text-gray-light.xs-pth0.xs-mb1
+  %p.xs-mbh0 Tabs, floating and fixed.
+
+  - theme_intents.each do |intent|
+    %ul.tabs-navigation{class: "tabs-navigation--#{intent}"}
+      %li.tabs-navigation__item
+        %a.tabs-navigation__link.xs-ph0{href: '#'} Red Pill
+      %li.tabs-navigation__item.tabs-navigation__item--is-active
+        %a.tabs-navigation__link.xs-ph0{href: '#'} Blue Pill
+    .tabs
+      .box.tabs__target--is-active.xs-p1.xs-mb1{class: "box--#{intent}"}
+        .layout
+          .layout__item
+            %h3 Things
+
+  -#%pre
+  -#  %code.scss
+  -#    :preserve
+  -#          %nav.navigationbar                        // base class
+  -#            .navigationbar__header                  // container for left-aligned header items, such as...
+  -#              .navigationbar__header__logo          // container for logo image / type
+  -#            .navigationbar__toggle                  // container for toggle-able mobile navigation
+  -#              input.navigationbar__toggle__helper   // content for toggle-able navigation
+  -#            ul.navigationbar__navigation{           // inline list of navigation bar links
+  -#              li.navigationbar__item                // container for nav items
+  -#                a.navigationbar__link               // navigation link
+  -#                ul.navigationbar__dropdown          // dropdown list of navbar items
+  -#                  li.navigationbar__dropdown__item  // container for dropdown nav items
+  -#
+  -#%p.xs-mtb1 For example, the code for the navigation bar above (very similar to the navbar on hired.com) is:
+  -#%pre
+  -#  %code.haml
+  -#    :preserve
+  -#          %header.container--fixed-top.fluid-container
+  -#            %nav.navigationbar
+  -#              .container
+  -#                .navigationbar__header
+  -#                  %a.navigationbar__header__logo{:href => "/", :target => "_self"}
+  -#                    %img.icon.icon--hired{ :alt => "Hired",
+  -#                      :height => "22",
+  -#                      :src => "/img/spacer.gif",
+  -#                      :width => "102" }/
+  -#                .navigationbar__toggle
+  -#                  %img.icon.icon--menu{:alt => "Menu", :src => "/img/spacer.gif"}/
+  -#                  %input.navigationbar__toggle__helper{:type => "checkbox"}/
+  -#                  %ul.navigationbar__navigation
+  -#                    %li.navigationbar__item
+  -#                      %a.navigationbar__link{:href => "/grid", :target => "_self"} Grid
+  -#                    - # other navbar items
