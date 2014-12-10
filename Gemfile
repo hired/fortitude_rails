@@ -12,5 +12,3 @@ gemspec
 
 # To use debugger
 # gem 'debugger'
-
-gem 'fortitude-sass', path: '../fortitude-sass'
