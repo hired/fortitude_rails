@@ -1,5 +1,5 @@
 !!!
-%html#hired
+%html{id: FortitudeRails.theme_namespace }
   %head
     %meta{:charset => "utf-8"}/
     %meta{:content => "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible"}/
@@ -7,7 +7,7 @@
     %meta{:content => "width=device-width", :name => "viewport"}/
     %link{rel: "icon", type: "image/x-icon", href: "/favicon.ico"}/
     
-    = stylesheet_link_tag    "fortitude_rails/application", media: "all"
+    = stylesheet_link_tag "fortitude_rails/base", media: "all"
     %script{src: 'https://code.jquery.com/jquery-2.1.1.min.js'}
     = javascript_include_tag "fortitude_rails/application"
     %link{:href => "//cloud.typography.com/7210632/727402/css/fonts.css", :media => "all", :rel => "stylesheet"}/

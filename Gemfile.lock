@@ -6,14 +6,6 @@ PATH
       haml-rails
       rails (~> 4.1.7)
 
-PATH
-  remote: ../fortitude-sass
-  specs:
-    fortitude-sass (0.4.5)
-      autoprefixer-rails
-      sass (~> 3.3)
-      thor
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -44,12 +36,16 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
-    autoprefixer-rails (4.0.1)
+    autoprefixer-rails (4.0.2.1)
       execjs
     builder (3.2.2)
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.2.2)
+    fortitude-sass (0.4.5)
+      autoprefixer-rails
+      sass (~> 3.3)
+      thor
     haml (4.0.5)
       tilt
     haml-rails (0.5.3)
@@ -121,7 +117,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  fortitude-sass!
   fortitude_rails!
   rspec-rails (~> 3.0.0)
   sqlite3

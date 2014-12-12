@@ -2,18 +2,17 @@
   %nav.navigationbar
     .container
       .navigationbar__header
-        %a.navigationbar__header__logo{:href => root_path, :target => "_self"}
+        = link_to root_path, class: 'navigationbar__header__logo' do
           %h1.text-white-light Fortitude Rails
       .navigationbar__toggle
         %img.icon.icon--burger{:alt => "Menu", :src => image_path('spacer.gif')}/
         %input.navigationbar__toggle__helper{:type => "checkbox"}/
         %ul.navigationbar__navigation
           %li.navigationbar__item
-            %a.navigationbar__link{:href => getting_started_path, :target => '_self'} Getting Started
+            = link_to 'Getting Started', static_path('getting_started'), class: 'navigationbar__link'
           %li.navigationbar__item
-            %a.navigationbar__link{:href => docs_path, :target => '_self'} Docs
+            = link_to 'Components', static_path('docs'), class: 'navigationbar__link'
           %li.navigationbar__item
-            %a.navigationbar__link{:href => "#", :target => "_self"} Component Generator
-
+            = link_to 'Component Generator', static_path('component_generator'), class: 'navigationbar__link'
           %li.navigationbar__item
-            %a.navigationbar__link{:href => '#', :target => '_self'} Customization
+            = link_to 'Customization', static_path('customization'), class: 'navigationbar__link'

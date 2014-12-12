@@ -1,9 +1,10 @@
-require 'haml-rails'
+require 'fortitude-sass'
 require 'fortitude_rails/engine'
 
 module FortitudeRails
   mattr_accessor :theme_intents
   mattr_accessor :theme_components
+  mattr_accessor :theme_namespace
 
   def self.theme_intents
     @@theme_intents ||= %w(
@@ -46,5 +47,9 @@ module FortitudeRails
       wings
       utilities
     )
+  end
+
+  def self.theme_namespace
+    @@theme_namespace ||= 'fortitude'
   end
 end
