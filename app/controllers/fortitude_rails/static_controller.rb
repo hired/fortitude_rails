@@ -1,7 +1,8 @@
 class FortitudeRails::StaticController < FortitudeRails::ApplicationController
+  PAGES = %w(index docs getting_started customization component_generator)
 
-  # check the views folder
-  # since this controller only renders static views
-  # defining the actions is unnecessary
+  PAGES.each do |page|
+    define_method page do ; end
+  end
 
 end
