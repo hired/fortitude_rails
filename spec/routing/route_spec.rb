@@ -3,8 +3,8 @@ require 'spec_helper'
 describe 'routes' do
   routes { FortitudeRails::Engine.routes }
 
-  it 'routes to index' do
-    expect(get: '/').to route_to(action: 'index', controller: 'fortitude_rails/static')
+  it 'routes index to docs' do
+    expect(get: '/').to route_to(action: 'docs', controller: 'fortitude_rails/static')
   end
 
   it 'routes to docs' do
