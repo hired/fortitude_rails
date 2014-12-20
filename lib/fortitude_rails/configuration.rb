@@ -1,16 +1,24 @@
 module FortitudeRails
   module Configuration
+    GEM_PATH = File.expand_path '../..', File.dirname(__FILE__)
+    DOCS_YAML_PATH = File.join(GEM_PATH, 'config', 'theme_docs.yml').freeze
 
     OPTIONS = [
       :theme_intents,
       :theme_components,
-      :theme_namespace
+      :theme_namespace,
+      :stylesheet,
+      :theme_docs
     ]
 
     attr_accessor *OPTIONS
 
     def configure
       yield self
+    end
+
+    def self.gem_path
+      GEM_PATH
     end
 
     def self.extended(base)
@@ -30,7 +38,7 @@ module FortitudeRails
         flashbar
         fluid_container
         form
-        inline-list
+        inline_list
         input
         layout
         list_navigation
@@ -58,6 +66,9 @@ module FortitudeRails
       )
 
       self.theme_namespace = 'fortitude'
+      self.stylesheet = 'application'
+      self.theme_docs = YAML.load(File.read(DOCS_YAML_PATH))
+      self
     end
 
     OPTIONS.each do |option|

@@ -133,97 +133,51 @@
         %hr.text-gray-light.xs-pth0.xs-mb2
         %h3.text-black-light.xs-gamma.xs-inset2.xs-mb1 Select Fields
         %pre
-          %code.haml %select.select-input.input--full
-        .layout
-          .layout__item.xs-6of12><
-            .field
-              %label.label.xs-block Default
-              %select.select-input.input--full
-                %option.placeholder{value: ""} Choose One
-                %option{value: "2"} Choose 2
-                %option{value: "3"} Choose 3
-                %option{value: "4"} Choose 4
-                %option{value: "5"} Choose 5
-          .layout__item.xs-6of12><
-            .field
-              %label.label.xs-block Filled
-              %select.select-input.input--full
-                %option.placeholder{value: ""} Choose One
-                %option{value: "2"} Choose 2
-                %option{value: "3"} Choose 3
-                %option{value: "4"} Choose 4
-                %option{value: "5"} Choose 5
-          .layout__item.xs-6of12><
-            .field
-              %label.label.xs-block Disabled
-              %select.select-input.input--full{disabled: "disabled"}
-                %option.placeholder{value: ""} Choose One
-                %option{value: "2"} Choose 2
-                %option{value: "3"} Choose 3
-                %option{value: "4"} Choose 4
-                %option{value: "5"} Choose 5
-          .layout__item.xs-6of12><
-            .field.field--invalid
-              %label.label.xs-block Error
-              %select.select-input.input--full
-                %option.placeholder{value: ""} Choose One
-                %option{value: "2"} Choose 2
-                %option{value: "3"} Choose 3
-                %option{value: "4"} Choose 4
-                %option{value: "5"} Choose 5
-              .field__message Error message
-      .layout__item.sm-6of12.xs-mb1><
-        %hr.text-gray-light.xs-pth0.xs-mb2
-        %h3.text-black-light.xs-gamma.xs-inset2.xs-mb1 Radios + Checkboxes
-        .layout
-          .layout__item.xs-6of12><
-            %label.label.xs-block Radio Buttons
-            %pre
-              %code.haml %input.radio-input
-            .field
-              %label.label
-                %input.radio-input{type: "radio"}
-                Default
-            .field
-              %label.label
-                %input.radio-input{checked: "checked", type: "radio"}
-                Checked
-            .field
-              %label.label
-                %input.radio-input{disabled: "disabled", type: "radio"}
-                Disabled
-          .layout__item.xs-6of12><
-            %label.label.xs-block Checkboxes
-            %pre
-              %code.haml %input.checkbox-input
-            .field
-              %label.label
-                %input.checkbox-input{type: "checkbox"}
-                Default
-            .field
-              %label.label
-                %input.checkbox-input{checked: "checked", type: "checkbox"}
-                Checked
-            .field
-              %label.label
-                %input.checkbox-input{disabled: "disabled", type: "checkbox"}
-                Disabled
-        %h3.text-black-light.xs-gamma.xs-inset2 File Upload
-        .layout
-          .layout__item.xs-6of12><
-            .field
-              %label.label.xs-block Default
-              %pre
-                %code.haml .button--file
-              .button.button--small.button--secondary.button--file.xs-inset2
-                %span Choose file
-                %input.button__target{type: "file"}
-            .field
-              %label.label.xs-block Uploaded
-              .button.button--small.button--secondary
-                %img.icon.icon--check.button__icon{src: "/img/spacer.gif", alt: "Uploaded"}
-                %span Choose file
-                %input#file-upload-2.button__target{type: "file"}
-              .label.label--file.xs-inset2
-                %img.icon.icon--file{src: "/img/spacer.gif", alt: "Uploaded"}
-                %label{for: "file-upload-2"} File.png
+          %code.haml %input.radio-input
+        .field
+          %label.label
+            %input.radio-input{type: "radio"}
+            Default
+        .field
+          %label.label
+            %input.radio-input{checked: "checked", type: "radio"}
+            Checked
+        .field
+          %label.label
+            %input.radio-input{disabled: "disabled", type: "radio"}
+            Disabled
+      .layout__item.xs-6of12><
+        %label.label.xs-block Checkboxes
+        %pre
+          %code.haml %input.checkbox-input
+        .field
+          %label.label
+            %input.checkbox-input{type: "checkbox"}
+            Default
+        .field
+          %label.label
+            %input.checkbox-input{checked: "checked", type: "checkbox"}
+            Checked
+        .field
+          %label.label
+            %input.checkbox-input{disabled: "disabled", type: "checkbox"}
+            Disabled
+    %h3.text-black-light.xs-gamma.xs-inset2 File Upload
+    .layout
+      .layout__item.xs-6of12><
+        .field
+          %label.label.xs-block Default
+          %pre
+            %code.haml .button--file
+          .button.button--small.button--secondary.button--file.xs-inset2
+            %span Choose file
+            %input.button__target{type: "file"}
+        .field
+          %label.label.xs-block Uploaded
+          .button.button--small.button--secondary
+            = image_tag spacer_gif, alt: 'Uploaded', class: 'icon icon--check button__icon'
+            %span Choose file
+            %input#file-upload-2.button__target{type: "file"}
+          .label.label--file.xs-inset2
+            = image_tag spacer_gif, alt: 'Uploaded', class: 'icon icon--file'
+            %label{for: "file-upload-2"} File.png

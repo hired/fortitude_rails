@@ -18,6 +18,10 @@ describe FortitudeRails::Configuration do
     expect{subject.theme_namespace = 'mynamespace'}.to change{subject.theme_namespace}
   end
 
+  it 'loads yaml docs' do
+    expect(subject.theme_docs).to be_a(Hash)
+  end
+
   it 'allows configure block' do
     subject.configure do |config|
       config.theme_intents = %w(light dark)

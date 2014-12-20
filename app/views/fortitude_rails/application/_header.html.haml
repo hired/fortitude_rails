@@ -4,8 +4,8 @@
       .navigationbar__header
         %a.navigationbar__header__logo{href: root_path, target: '_self'} Fortitude
       .navigationbar__toggle
-        %img.icon.icon--burger{alt: 'Menu', src: image_path('spacer.gif')}
-        %input.navigationbar__toggle__helper{type: 'checkbox'}
+        = image_tag spacer_gif, alt: 'Menu', class: 'icon icon--burger'
+        %input.navigationbar__toggle__helper{:type => "checkbox"}/
         %ul.navigationbar__navigation
           %li.navigationbar__item
             %a.navigationbar__link{href: static_path('getting_started'), target: '_self'} Getting Started
