@@ -1,18 +1,18 @@
 %header.container--fixed-top.fluid-container
-  %nav.navigationbar
+  %nav.navigationbar.navigationbar--default
     .container
       .navigationbar__header
-        = link_to root_path, class: 'navigationbar__header__logo' do
-          %h1.text-white-light Fortitude Rails
+        %a.navigationbar__header__logo{href: root_path, target: '_self'} Fortitude
       .navigationbar__toggle
-        %img.icon.icon--burger{:alt => "Menu", :src => image_path('spacer.gif')}/
-        %input.navigationbar__toggle__helper{:type => "checkbox"}/
+        %img.icon.icon--burger{alt: 'Menu', src: image_path('spacer.gif')}
+        %input.navigationbar__toggle__helper{type: 'checkbox'}
         %ul.navigationbar__navigation
           %li.navigationbar__item
-            = link_to 'Getting Started', static_path('getting_started'), class: 'navigationbar__link'
+            %a.navigationbar__link{href: static_path('getting_started'), target: '_self'} Getting Started
           %li.navigationbar__item
-            = link_to 'Components', static_path('docs'), class: 'navigationbar__link'
+            %a.navigationbar__link{href: static_path('docs'), target: '_self'} Docs
           %li.navigationbar__item
-            = link_to 'Component Generator', static_path('component_generator'), class: 'navigationbar__link'
+            %a.navigationbar__link{href: static_path('component_generator'), target: '_self'} Component Generator
           %li.navigationbar__item
-            = link_to 'Customization', static_path('customization'), class: 'navigationbar__link'
+            %a.navigationbar__link{href: static_path('customization'), target: '_self'} Customization
+.navigationbar

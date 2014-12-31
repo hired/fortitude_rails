@@ -1,26 +1,27 @@
-.layout__item><
-  %h2.text-black-light.xs-beta.xs-inset2.xs-mth1 Modals
-  %hr.text-gray-light.xs-pth0.xs-mb1
-  %p.xs-mbh0 Modals can have almost anything in them.
-  %pre
-    %code.scss
-      :preserve
-            .modal              // wrapper for modal
-              .modal__content   // container for content
-                .box.box--white // recommended - set background and style container
+.layout
+  .layout__item><
+    %h2.text-black-light.xs-beta.xs-inset2.xs-mth1 Modals
+    %hr.text-gray-light.xs-pth0.xs-mb1
+    %p.xs-mbh0 Modals can have almost anything in them.
+    %pre
+      %code.scss
+        :preserve
+              .modal              // wrapper for modal
+                .modal__content   // container for content
+                  .box.box--white // recommended - set background and style container
 
-.layout__item.xs-mt1
-  %a.button.button--tertiary.button--large{href: '#', data: {open_modal: '#example-modal'}} Show Example
+  .layout__item.xs-mt1
+    %a.button.button--tertiary.button--large{href: '#', data: {open_modal: '#example-modal'}} Show Example
 
-.modal#example-modal
-  .modal__content
-    .layout--center.xs-mt8
-      .layout__item.xs-10of12.md-8of12
-        .box.box--white.box--rounded.xs-p1.sm-p2.text-black-light
-          %h1.xs-delta.xs-mb1 Modal Dialog
-          %p.xs-mb1 You can put lots of different content here.
-          .layout
-            .layout__item.xs-6of12><
-              %a.button.button--full.button--primary{data: {close_modal: true}} Confirm
-            .layout__item.xs-6of12><
-              %a.button.button--full.button--secondary{data: {close_modal: true}} Cancel
+  .modal#example-modal
+    .modal__content
+      .layout--center.xs-mt8
+        .layout__item.xs-10of12.md-8of12
+          .box.box--white.box--rounded.xs-p1.sm-p2.text-black-light
+            %h1.xs-delta.xs-mb1 Modal Dialog
+            %p.xs-mb1 You can put lots of different content here.
+            .layout
+              .layout__item.xs-6of12><
+                %a.button.button--full.button--primary{data: {close_modal: true}} Confirm
+              .layout__item.xs-6of12><
+                %a.button.button--full.button--secondary{data: {close_modal: true}} Cancel

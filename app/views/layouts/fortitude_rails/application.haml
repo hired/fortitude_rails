@@ -1,22 +1,22 @@
 !!!
 %html{id: FortitudeRails.theme_namespace }
   %head
-    %meta{:charset => "utf-8"}/
-    %meta{:content => "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible"}/
-    %title
-    %meta{:content => "width=device-width", :name => "viewport"}/
-    %link{rel: "icon", type: "image/x-icon", href: "/favicon.ico"}/
-    
-    = stylesheet_link_tag "fortitude_rails/base", media: "all"
+    %meta{charset: 'utf-8'}
+    %meta{content: 'IE=edge,chrome=1', 'http-equiv' => 'X-UA-Compatible'}
+    %title Fortitude Docs
+    %meta{content: 'width=device-width', name: 'viewport'}
+    %link{rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'}
+    = stylesheet_link_tag 'fortitude_rails/base', media: 'all'
+    %link{href: 'http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400|Rajdhani', rel: 'stylesheet', type: 'text/css'}
     %script{src: 'https://code.jquery.com/jquery-2.1.1.min.js'}
-    = javascript_include_tag "fortitude_rails/application"
-    %link{:href => "//cloud.typography.com/7210632/727402/css/fonts.css", :media => "all", :rel => "stylesheet"}/
+    = javascript_include_tag 'fortitude_rails/application'
 
   %body
     = render 'header'
-    .box
+    = yield
+    - if content_for?(:page)
       .container.xs-pt2.md-pt3.xs-prl1.sm-prl0.xs-mb3
-        = yield
+        = yield(:page)
     = render 'footer'
     :javascript
       hljs.initHighlightingOnLoad();

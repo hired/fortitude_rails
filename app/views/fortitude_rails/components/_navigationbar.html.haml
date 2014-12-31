@@ -1,38 +1,39 @@
-.layout__item.xs-mb2><
-  %h2.text-black-light.xs-beta.xs-mbh0 Navbar
-  %hr.text-gray-light.xs-pth0.xs-mb1
-  %p.xs-mbh0 The navbar lets us intelligently structure nav links, mix and match elements, and maintain proper grid spacing. It should be placed inside a header and container, and you can optionally use container-fluid (for a full-width navbar) and container--fixed-top (so the navbar doesn't scroll away when the page is scrolled).
-  %pre
-    %code.scss
-      :preserve
-            %nav.navigationbar                        // base class
-              .navigationbar__header                  // container for left-aligned header items, such as...
-                .navigationbar__header__logo          // container for logo image / type
-              .navigationbar__toggle                  // container for toggle-able mobile navigation
-                input.navigationbar__toggle__helper   // content for toggle-able navigation
-              ul.navigationbar__navigation{           // inline list of navigation bar links
-                li.navigationbar__item                // container for nav items
-                  a.navigationbar__link               // navigation link
-                  ul.navigationbar__dropdown          // dropdown list of navbar items
-                    li.navigationbar__dropdown__item  // container for dropdown nav items
+.layout
+  .layout__item.xs-mb2><
+    %h2.text-black-light.xs-beta.xs-mbh0 Navbar
+    %hr.text-gray-light.xs-pth0.xs-mb1
+    %p.xs-mbh0 The navbar lets us intelligently structure nav links, mix and match elements, and maintain proper grid spacing. It should be placed inside a header and container, and you can optionally use container-fluid (for a full-width navbar) and container--fixed-top (so the navbar doesn't scroll away when the page is scrolled).
+    %pre
+      %code.scss
+        :preserve
+              %nav.navigationbar                        // base class
+                .navigationbar__header                  // container for left-aligned header items, such as...
+                  .navigationbar__header__logo          // container for logo image / type
+                .navigationbar__toggle                  // container for toggle-able mobile navigation
+                  input.navigationbar__toggle__helper   // content for toggle-able navigation
+                ul.navigationbar__navigation{           // inline list of navigation bar links
+                  li.navigationbar__item                // container for nav items
+                    a.navigationbar__link               // navigation link
+                    ul.navigationbar__dropdown          // dropdown list of navbar items
+                      li.navigationbar__dropdown__item  // container for dropdown nav items
 
-  %p.xs-mtb1 For example, the code for the navigation bar above (very similar to the navbar on hired.com) is:
-  %pre
-    %code.haml
-      :preserve
-            %header.container--fixed-top.fluid-container
-              %nav.navigationbar
-                .container
-                  .navigationbar__header
-                    %a.navigationbar__header__logo{:href => "/", :target => "_self"}
-                      %img.icon.icon--hired{ :alt => "Hired",
-                        :height => "22",
-                        :src => "/img/spacer.gif",
-                        :width => "102" }/
-                  .navigationbar__toggle
-                    %img.icon.icon--menu{:alt => "Menu", :src => "/img/spacer.gif"}/
-                    %input.navigationbar__toggle__helper{:type => "checkbox"}/
-                    %ul.navigationbar__navigation
-                      %li.navigationbar__item
-                        %a.navigationbar__link{:href => "/grid", :target => "_self"} Grid
-                      - # other navbar items
+    %p.xs-mtb1 For example, the code for the navigation bar above (very similar to the navbar on hired.com) is:
+    %pre
+      %code.haml
+        :preserve
+              %header.container--fixed-top.fluid-container
+                %nav.navigationbar
+                  .container
+                    .navigationbar__header
+                      %a.navigationbar__header__logo{:href => "/", :target => "_self"}
+                        %img.icon.icon--hired{ :alt => "Hired",
+                          :height => "22",
+                          :src => "/img/spacer.gif",
+                          :width => "102" }/
+                    .navigationbar__toggle
+                      %img.icon.icon--menu{:alt => "Menu", :src => "/img/spacer.gif"}/
+                      %input.navigationbar__toggle__helper{:type => "checkbox"}/
+                      %ul.navigationbar__navigation
+                        %li.navigationbar__item
+                          %a.navigationbar__link{:href => "/grid", :target => "_self"} Grid
+                        - # other navbar items

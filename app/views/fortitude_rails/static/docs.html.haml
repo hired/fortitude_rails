@@ -1,18 +1,15 @@
-.layout
-  .layout__item.xs-none.sm-4of12.md-3of12.xs-none.sm-inline-block><
-    .box.sidebar.sidebar--settings.sidebar--is-fixed><
-      .sidebar__inner{style: 'top: 9rem'}
-        %h2.text-black-light.xs-beta.xs-inset2.xs-mb1 Components
-        %ul.list-navigation
-          - theme_components.each do |component_name|
-            %li
-              %a.list-navigation__link{href: "##{component_name.pluralize}"} #{component_name.humanize.pluralize}
+- content_for :page do
+  .layout
+    .layout__item.xs-none.sm-4of12.md-3of12.xs-none.sm-inline-block><
+      .box.sidebar.sidebar--settings.sidebar--is-fixed><
+        .sidebar__inner{style: 'top: 9rem'}
+          %h2.text-black-light.xs-beta.xs-inset2.xs-mb1 Components
+          %ul.list-navigation
+            - theme_components.each do |component_name|
+              %li
+                %a.list-navigation__link{href: "##{component_name.pluralize}"} #{component_name.humanize.pluralize}
 
-  .layout__item.sm-8of12.md-9of12><
-    - theme_components.each do |component_name|
-      .layout.xs-mb2{id: component_name.pluralize}
-        = render "fortitude_rails/components/#{component_name}" rescue "<h2>#{component_name} documentation not found.</h2>".html_safe
-
-
-
-
+    .layout__item.sm-8of12.md-9of12><
+      - theme_components.each do |component_name|
+        .box.xs-mb2{id: component_name.pluralize}
+          = render "fortitude_rails/components/#{component_name}" rescue "<h2>#{component_name} documentation not found.</h2>".html_safe
