@@ -36,7 +36,7 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
-    autoprefixer-rails (4.0.2.1)
+    autoprefixer-rails (4.0.2.2)
       execjs
     builder (3.2.2)
     diff-lcs (1.2.5)
