@@ -1,183 +1,182 @@
-.layout
-  .layout__item><
-    %h2.text-black-light.xs-beta.xs-inset2 Forms
-    %hr.text-gray-light.xs-pth0.xs-mb2
-    .layout
-      .layout__item.sm-6of12><
-        %h3.test-black-light.xs-gamma.xs-mbh0 Form Classes
-        %p.xs-mbh0 Fortitude provides clear styling for forms, labels, and error messages.
+.layout__item><
+  %h2.text-black-light.xs-beta.xs-inset2 Forms
+  %hr.text-gray-light.xs-pth0.xs-mb2
+  .layout
+    .layout__item.sm-6of12><
+      %h3.test-black-light.xs-gamma.xs-mbh0 Form Classes
+      %p.xs-mbh0 Fortitude provides clear styling for forms, labels, and error messages.
 
-      .layout__item.sm-6of12><
-        %h3.test-black-light.xs-gamma.xs-mbh0 Form Builder
-        %p.xs-mbh0
-          We also have a
-          %a.link{href: 'http://guides.rubyonrails.org/form_helpers.html#customizing-form-builders', target: '_blank'} Form Builder
-          for Rails, which will automatically wrap fields in a
-          %code .field
-          div. If there are errors on that field, it will apply
-          %code .field--invalid
-          and add the error message in a
-          %code .field__message
-    .layout
-      .layout__item.sm-6of12><
-        %pre
-          %code.scss
-            :preserve
-                .field                // wrapper for all input fields - makes
-                                      // labels and field messages line up as expected
-                  %label.label        // aligns label messages
-                  %input.text-input   // normalizes all text inputs
-                  %input.input--full  // makes input fields full width; always use this
-                  .field__message     // use for help text or error messages
-                .field--invalid       // used for fields with errors
-                  .field__message     // will display angry warning text
-      .layout__item.sm-6of12><
-        %pre
-          %code.haml
-            :preserve
-                = form_for @model, builder: FortitudeFormBuilder do |f|
-                  = f.field :name do
-                    = f.label :name, "Your name:"
-                    = f.text_field :name,
-                        class: 'text-input input--full',
-                        placeholder: 'Full Name'
+    .layout__item.sm-6of12><
+      %h3.test-black-light.xs-gamma.xs-mbh0 Form Builder
+      %p.xs-mbh0
+        We also have a
+        %a.link{href: 'http://guides.rubyonrails.org/form_helpers.html#customizing-form-builders', target: '_blank'} Form Builder
+        for Rails, which will automatically wrap fields in a
+        %code .field
+        div. If there are errors on that field, it will apply
+        %code .field--invalid
+        and add the error message in a
+        %code .field__message
+  .layout
+    .layout__item.sm-6of12><
+      %pre
+        %code.scss
+          :preserve
+              .field                // wrapper for all input fields - makes
+                                    // labels and field messages line up as expected
+                %label.label        // aligns label messages
+                %input.text-input   // normalizes all text inputs
+                %input.input--full  // makes input fields full width; always use this
+                .field__message     // use for help text or error messages
+              .field--invalid       // used for fields with errors
+                .field__message     // will display angry warning text
+    .layout__item.sm-6of12><
+      %pre
+        %code.haml
+          :preserve
+              = form_for @model, builder: FortitudeFormBuilder do |f|
+                = f.field :name do
+                  = f.label :name, "Your name:"
+                  = f.text_field :name,
+                      class: 'text-input input--full',
+                      placeholder: 'Full Name'
 
-    .layout
-      .layout__item.sm-6of12.xs-mb1><
-        %hr.text-gray-light.xs-pth0.xs-mb2
-        %h3.text-black-light.xs-gamma.xs-inset2.xs-mb1 Text Fields
-        %pre
-          %code.haml %input.text-input
-        .layout.xs-mb1
-          .layout__item.xs-6of12><
-            .field
-              %label.label.xs-block
-                %code .text-input
-              %input.text-input.input--full{placeholder: "Placeholder", type: "text"}
-          .layout__item.xs-6of12><
-            .field
-              %label.label.xs-block
-                %code .text-input
-                with content
-              %input.text-input.input--full{placeholder: "Placeholder", type: "text", value: "Value"}
-        .layout.xs-mb1
-          .layout__item.xs-6of12><
-            .field
-              %label.label.xs-block
-                %code .text-input{disabled: disabled}
-              %input.text-input.input--full{disabled: "disabled", placeholder: "Placeholder", type: "text"}
-          .layout__item.xs-6of12><
-            .field.field--invalid
-              %label.label.xs-block Error
-              %input.text-input.input--full{placeholder: "Placeholder", type: "text", value: "Error value"}
-              .field__message Error message
+  .layout
+    .layout__item.sm-6of12.xs-mb1><
+      %hr.text-gray-light.xs-pth0.xs-mb2
+      %h3.text-black-light.xs-gamma.xs-inset2.xs-mb1 Text Fields
+      %pre
+        %code.haml %input.text-input
+      .layout.xs-mb1
+        .layout__item.xs-6of12><
+          .field
+            %label.label.xs-block
+              %code .text-input
+            %input.text-input.input--full{placeholder: "Placeholder", type: "text"}
+        .layout__item.xs-6of12><
+          .field
+            %label.label.xs-block
+              %code .text-input
+              with content
+            %input.text-input.input--full{placeholder: "Placeholder", type: "text", value: "Value"}
+      .layout.xs-mb1
+        .layout__item.xs-6of12><
+          .field
+            %label.label.xs-block
+              %code .text-input{disabled: disabled}
+            %input.text-input.input--full{disabled: "disabled", placeholder: "Placeholder", type: "text"}
+        .layout__item.xs-6of12><
+          .field.field--invalid
+            %label.label.xs-block Error
+            %input.text-input.input--full{placeholder: "Placeholder", type: "text", value: "Error value"}
+            .field__message Error message
 
-        %h4.xs-delta.xs-mb0h.xs-inset2 Input Groups
-        %pre
-          %code.haml
-            :preserve
-                .input-group
-                  .field
-                    .input-group__addon
-                      Can be before or after a %input
-
-        .layout.xs-mtb1
-          .layout__item.xs-6of12><
-            .field
-              %label.label.xs-block Defaul
+      %h4.xs-delta.xs-mb0h.xs-inset2 Input Groups
+      %pre
+        %code.haml
+          :preserve
               .input-group
-                .input-group__addon $
-                %input.text-input.input--full{ placeholder: "1,000,000"}
-          .layout__item.xs-6of12><
-            .field
-              %label.label.xs-block Filled
-              .input-group
-                %input.text-input.input--full{ value: "1 billion dollars"}
-                .input-group__addon $
-        .layout
-          .layout__item.xs-6of12><
-            .field
-              %label.label.xs-block Disabled
-              .input-group
-                .input-group__addon $
-                %input.text-input.input--full{ disabled: true, value: "1 billion dollars"}
-          .layout__item.xs-6of12><
-            .field.field--invalid
-              %label.label.xs-block Error
-              .input-group
-                %input.text-input.input--full{ disabled: true, value: "1 billion dollars"}
-                .input-group__addon $
-              .field__message Error message
+                .field
+                  .input-group__addon
+                    Can be before or after a %input
+
+      .layout.xs-mtb1
+        .layout__item.xs-6of12><
+          .field
+            %label.label.xs-block Defaul
+            .input-group
+              .input-group__addon $
+              %input.text-input.input--full{ placeholder: "1,000,000"}
+        .layout__item.xs-6of12><
+          .field
+            %label.label.xs-block Filled
+            .input-group
+              %input.text-input.input--full{ value: "1 billion dollars"}
+              .input-group__addon $
+      .layout
+        .layout__item.xs-6of12><
+          .field
+            %label.label.xs-block Disabled
+            .input-group
+              .input-group__addon $
+              %input.text-input.input--full{ disabled: true, value: "1 billion dollars"}
+        .layout__item.xs-6of12><
+          .field.field--invalid
+            %label.label.xs-block Error
+            .input-group
+              %input.text-input.input--full{ disabled: true, value: "1 billion dollars"}
+              .input-group__addon $
+            .field__message Error message
 
 
-      .layout__item.sm-6of12.xs-mb1><
-        %hr.text-gray-light.xs-pth0.xs-mb2
-        %h3.text-black-light.xs-gamma.xs-inset2.xs-mb1 Textarea
+    .layout__item.sm-6of12.xs-mb1><
+      %hr.text-gray-light.xs-pth0.xs-mb2
+      %h3.text-black-light.xs-gamma.xs-inset2.xs-mb1 Textarea
+      %pre
+        %code.haml %textarea.textarea-input.input--full
+      .field
+        %label.label.xs-block Default
+        %textarea.textarea-input.input--full{style: "min-height: 8rem;", placeholder: "Placeholder"}
+      .field
+        %label.label.xs-block Filled
+        %textarea.textarea-input.input--full{style: "min-height: 8rem;", placeholder: "Placeholder"} Value
+      .field
+        %label.label.xs-block Disabled
+        %textarea.textarea-input.input--full{style: "min-height: 8rem;", disabled: "disabled", placeholder: "Placeholder"}
+      .field.field--invalid
+        %label.label.xs-block Error
+        %textarea.textarea-input.input--full{style: "min-height: 8rem;", placeholder: "Placeholder"} Error value
+        .field__message Error message
+  .layout
+    .layout__item.sm-6of12.xs-mb1><
+      %hr.text-gray-light.xs-pth0.xs-mb2
+      %h3.text-black-light.xs-gamma.xs-inset2.xs-mb1 Select Fields
+      %pre
+        %code.haml %input.radio-input
+      .field
+        %label.label
+          %input.radio-input{type: "radio"}
+          Default
+      .field
+        %label.label
+          %input.radio-input{checked: "checked", type: "radio"}
+          Checked
+      .field
+        %label.label
+          %input.radio-input{disabled: "disabled", type: "radio"}
+          Disabled
+    .layout__item.xs-6of12><
+      %label.label.xs-block Checkboxes
+      %pre
+        %code.haml %input.checkbox-input
+      .field
+        %label.label
+          %input.checkbox-input{type: "checkbox"}
+          Default
+      .field
+        %label.label
+          %input.checkbox-input{checked: "checked", type: "checkbox"}
+          Checked
+      .field
+        %label.label
+          %input.checkbox-input{disabled: "disabled", type: "checkbox"}
+          Disabled
+  %h3.text-black-light.xs-gamma.xs-inset2 File Upload
+  .layout
+    .layout__item.xs-6of12><
+      .field
+        %label.label.xs-block Default
         %pre
-          %code.haml %textarea.textarea-input.input--full
-        .field
-          %label.label.xs-block Default
-          %textarea.textarea-input.input--full{style: "min-height: 8rem;", placeholder: "Placeholder"}
-        .field
-          %label.label.xs-block Filled
-          %textarea.textarea-input.input--full{style: "min-height: 8rem;", placeholder: "Placeholder"} Value
-        .field
-          %label.label.xs-block Disabled
-          %textarea.textarea-input.input--full{style: "min-height: 8rem;", disabled: "disabled", placeholder: "Placeholder"}
-        .field.field--invalid
-          %label.label.xs-block Error
-          %textarea.textarea-input.input--full{style: "min-height: 8rem;", placeholder: "Placeholder"} Error value
-          .field__message Error message
-    .layout
-      .layout__item.sm-6of12.xs-mb1><
-        %hr.text-gray-light.xs-pth0.xs-mb2
-        %h3.text-black-light.xs-gamma.xs-inset2.xs-mb1 Select Fields
-        %pre
-          %code.haml %input.radio-input
-        .field
-          %label.label
-            %input.radio-input{type: "radio"}
-            Default
-        .field
-          %label.label
-            %input.radio-input{checked: "checked", type: "radio"}
-            Checked
-        .field
-          %label.label
-            %input.radio-input{disabled: "disabled", type: "radio"}
-            Disabled
-      .layout__item.xs-6of12><
-        %label.label.xs-block Checkboxes
-        %pre
-          %code.haml %input.checkbox-input
-        .field
-          %label.label
-            %input.checkbox-input{type: "checkbox"}
-            Default
-        .field
-          %label.label
-            %input.checkbox-input{checked: "checked", type: "checkbox"}
-            Checked
-        .field
-          %label.label
-            %input.checkbox-input{disabled: "disabled", type: "checkbox"}
-            Disabled
-    %h3.text-black-light.xs-gamma.xs-inset2 File Upload
-    .layout
-      .layout__item.xs-6of12><
-        .field
-          %label.label.xs-block Default
-          %pre
-            %code.haml .button--file
-          .button.button--small.button--secondary.button--file.xs-inset2
-            %span Choose file
-            %input.button__target{type: "file"}
-        .field
-          %label.label.xs-block Uploaded
-          .button.button--small.button--secondary
-            = image_tag spacer_gif, alt: 'Uploaded', class: 'icon icon--check button__icon'
-            %span Choose file
-            %input#file-upload-2.button__target{type: "file"}
-          .label.label--file.xs-inset2
-            = image_tag spacer_gif, alt: 'Uploaded', class: 'icon icon--file'
-            %label{for: "file-upload-2"} File.png
+          %code.haml .button--file
+        .button.button--small.button--secondary.button--file.xs-inset2
+          %span Choose file
+          %input.button__target{type: "file"}
+      .field
+        %label.label.xs-block Uploaded
+        .button.button--small.button--secondary
+          = image_tag spacer_gif, alt: 'Uploaded', class: 'icon icon--check button__icon'
+          %span Choose file
+          %input#file-upload-2.button__target{type: "file"}
+        .label.label--file.xs-inset2
+          = image_tag spacer_gif, alt: 'Uploaded', class: 'icon icon--file'
+          %label{for: "file-upload-2"} File.png

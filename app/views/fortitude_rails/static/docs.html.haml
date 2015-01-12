@@ -1,6 +1,6 @@
-.layout
+.layout.xs-mt2
   .layout__item.xs-none.sm-4of12.md-3of12.xs-none.sm-inline-block><
-    .box.sidebar.sidebar--settings.sidebar--is-fixed><
+    .box.sidebar.sidebar--settings.sidebar--is-fixed.sm-mt1.sm-ml1><
       .sidebar__inner{style: 'top: 9rem'}
         %h2.text-black-light.xs-beta.xs-inset2.xs-mb1 Components
         %ul.list-navigation
@@ -10,5 +10,5 @@
 
   .layout__item.sm-8of12.md-9of12><
     - theme_components.each do |component_name|
-      .layout.xs-mb2{id: component_name.pluralize}
+      .layout.xs-mb2.xs-mr2{id: component_name.pluralize}
         = render_fortitude_component(component_name)

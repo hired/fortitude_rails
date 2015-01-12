@@ -1,79 +1,79 @@
-.layout.xs-mbh1.md-mb1.xs-prl1.sm-prl0
-  .layout__item><
-    %h2.text-black-light.xs-beta.xs-inset2 Utilities
-    %hr.text-gray-light.xs-pth0
-    %p.xs-pt1
-      Margin, padding, and border size follow the same format:
-      %strong .bp-issh#
-      That is, the breakpoint, the item to affect (m for margin, p for padding, b for border), an optional h (add an extra half-unit of size if h is present), and a number 0-10 indicating how many line's worth of space to use.
+.layout__item><
+  %h2.text-black-light.xs-beta.xs-inset2 Utilities
+  %hr.text-gray-light.xs-pth0.xs-mb1
+  %p.xs-mb1
+    Margin, padding, and border size follow the same format:
+    %strong .bp-issh#
+    That is, the breakpoint, the item to affect (m for margin, p for padding, b for border), an optional h (add an extra half-unit of size if h is present), and a number 0-10 indicating how many line's worth of space to use.
 
-.layout.xs-mbh1.md-mb3.xs-prl1.sm-prl0
-  .layout__item.md-4of12><
-    %h3.text-black-light.xs-gamma.xs-mb1 Margin
-    %pre
-      %code.scss
-        :preserve
-          .(xs|sm|md|lg)-m(r|l|rl)(h?)(0-10)
-          .(xs|sm|md|lg)-m(t|b|tb)(h?)(0-10)
-          // xs|sm|etc - breakpoint
-          // m = margin
-          // r|r|rl - right, left, right and left
-          // t|b|tb - top, bottom, top & bottom
-          // h - add an extra half-unit
-          //   (h0 = 0.5, h1 = 1.5, etc)
-          // 0-10 - amt of spacing
+.layout__item><
+  .layout.xs-mbh1.md-mb3.xs-prl1.sm-prl0
+    .layout__item.md-4of12><
+      %h3.text-black-light.xs-gamma.xs-mb1 Margin
+      %pre
+        %code.scss
+          :preserve
+            .(xs|sm|md|lg)-m(r|l|rl)(h?)(0-10)
+            .(xs|sm|md|lg)-m(t|b|tb)(h?)(0-10)
+            // xs|sm|etc - breakpoint
+            // m = margin
+            // r|r|rl - right, left, right and left
+            // t|b|tb - top, bottom, top & bottom
+            // h - add an extra half-unit
+            //   (h0 = 0.5, h1 = 1.5, etc)
+            // 0-10 - amt of spacing
 
-          /////// Examples ///////
-          .xs-mtbh1
-            // margin-top: 2rem
-            // margin-bottom: 2rem
-            // all screen sizes
-          .xs-mrl1.md-mrl2.lg-mrl3
-            // higher margins for larger screens
+            /////// Examples ///////
+            .xs-mtbh1
+              // margin-top: 2rem
+              // margin-bottom: 2rem
+              // all screen sizes
+            .xs-mrl1.md-mrl2.lg-mrl3
+              // higher margins for larger screens
 
-  .layout__item.md-4of12><
-    %h3.text-black-light.xs-gamma.xs-mb1 Padding
-    %pre
-      %code.scss
-        :preserve
-          .(xs|sm|md|lg)-p(r|l|rl)(h?)(0-10)
-          .(xs|sm|md|lg)-p(t|b|tb)(h?)(0-10)
-          // xs|sm|etc - breakpoint
-          // p = padding
-          // r|r|rl - right, left, right and left
-          // t|b|tb - top, bottom, top & bottom
-          // h - add an extra half-unit
-          //   (h0 = 0.5, h1 = 1.5, etc)
-          // 0-10 - amt of spacing
+    .layout__item.md-4of12><
+      %h3.text-black-light.xs-gamma.xs-mb1 Padding
+      %pre
+        %code.scss
+          :preserve
+            .(xs|sm|md|lg)-p(r|l|rl)(h?)(0-10)
+            .(xs|sm|md|lg)-p(t|b|tb)(h?)(0-10)
+            // xs|sm|etc - breakpoint
+            // p = padding
+            // r|r|rl - right, left, right and left
+            // t|b|tb - top, bottom, top & bottom
+            // h - add an extra half-unit
+            //   (h0 = 0.5, h1 = 1.5, etc)
+            // 0-10 - amt of spacing
 
-          /////// Examples ///////
-          .xs-prlh1
-            // padding-left: 3rem
-            // padding-right: 3rem
-            // all screen sizes
-          .xs-prl1h.md-prl2h.lg-prlh3
-            // larger padding for larger screens
+            /////// Examples ///////
+            .xs-prlh1
+              // padding-left: 3rem
+              // padding-right: 3rem
+              // all screen sizes
+            .xs-prl1h.md-prl2h.lg-prlh3
+              // larger padding for larger screens
 
-  .layout__item.md-4of12><
-    %h3.text-black-light.xs-gamma.xs-mb1 Border Size
-    %pre
-      %code.scss
-        :preserve
-          .(xs|sm|md|lg)-b(r|l|rl)(h?)(0-10)
-          .(xs|sm|md|lg)-b(t|b|tb)(h?)(0-10)
-          // xs|sm|etc - breakpoint
-          // b = border
-          // r|r|rl - right, left, right and left
-          // t|b|tb - top, bottom, top & bottom
-          // h - add an extra half-unit
-          //   (h0 = 0.5, h1 = 1.5, etc)
-          // 0 or 1 - amt of spacing
+    .layout__item.md-4of12><
+      %h3.text-black-light.xs-gamma.xs-mb1 Border Size
+      %pre
+        %code.scss
+          :preserve
+            .(xs|sm|md|lg)-b(r|l|rl)(h?)(0-10)
+            .(xs|sm|md|lg)-b(t|b|tb)(h?)(0-10)
+            // xs|sm|etc - breakpoint
+            // b = border
+            // r|r|rl - right, left, right and left
+            // t|b|tb - top, bottom, top & bottom
+            // h - add an extra half-unit
+            //   (h0 = 0.5, h1 = 1.5, etc)
+            // 0 or 1 - amt of spacing
 
-          /////// Examples ///////
-          .xs-btb1
-            // border-bottom-width: 0.1rem
-            // border-top-width: 0.1rem
-            // all screen sizes
-          .xs-btb3.md-btb2.lg-btbh0
-            // vary border size
-    %p.xs-pt1 Note that border nudges only affect border width - they will not a border to an element that doesn't already have one.
+            /////// Examples ///////
+            .xs-btb1
+              // border-bottom-width: 0.1rem
+              // border-top-width: 0.1rem
+              // all screen sizes
+            .xs-btb3.md-btb2.lg-btbh0
+              // vary border size
+      %p.xs-pt1 Note that border nudges only affect border width - they will not a border to an element that doesn't already have one.

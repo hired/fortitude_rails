@@ -12,7 +12,6 @@
           %li.navigationbar__item
             %a.navigationbar__link{href: static_path('docs'), target: '_self'} Docs
           %li.navigationbar__item
-            %a.navigationbar__link{href: static_path('component_generator'), target: '_self'} Component Generator
+            = link_to 'Full Page', static_path('full_page'), class: 'navigationbar__link'
           %li.navigationbar__item
             %a.navigationbar__link{href: static_path('customization'), target: '_self'} Customization
-.navigationbar

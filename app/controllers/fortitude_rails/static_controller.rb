@@ -1,5 +1,5 @@
 class FortitudeRails::StaticController < FortitudeRails::ApplicationController
-  PAGES = %w(index docs getting_started customization component_generator)
+  PAGES = %w(index docs getting_started customization component_generator full_page)
   before_action :set_docs
 
   PAGES.each do |page|

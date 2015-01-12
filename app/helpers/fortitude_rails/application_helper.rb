@@ -30,5 +30,10 @@ module FortitudeRails
         "<h2>#{name} documentation not found.</h2>".html_safe
       end
     end
+
+    def escaped(template)
+      output = render(template).to_str
+      ::Haml::Helpers.html_escape(output)
+    end
   end
 end
