@@ -19,16 +19,8 @@ module FortitudeRails
     def render_fortitude_component(name)
       render "fortitude_rails/components/#{name}"
     rescue ActionView::MissingTemplate => e
-      if FortitudeRails.theme_docs[name].present?
-        locals = @docs[name]
-        locals = locals.merge(name: name) if locals.present?
-        locals ||= {name: name}
-        locals = locals.with_indifferent_access
-        render partial: 'fortitude_rails/static/component_doc', locals: locals
-      else
-        Rails.logger.error e
-        "<h2>#{name} documentation not found.</h2>".html_safe
-      end
+      Rails.logger.error e
+      "<h2>#{name} documentation not found.</h2>".html_safe
     end
 
     def escaped(template)

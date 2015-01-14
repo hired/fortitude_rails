@@ -1,14 +1,12 @@
 module FortitudeRails
   module Configuration
     GEM_PATH = File.expand_path '../..', File.dirname(__FILE__)
-    DOCS_YAML_PATH = File.join(GEM_PATH, 'config', 'theme_docs.yml').freeze
 
     OPTIONS = [
       :theme_intents,
       :theme_components,
       :theme_namespace,
-      :stylesheet,
-      :theme_docs
+      :stylesheet
     ]
 
     attr_accessor *OPTIONS
@@ -39,7 +37,6 @@ module FortitudeRails
         fluid_container
         form
         inline_list
-        input
         layout
         list_navigation
         media
@@ -67,7 +64,6 @@ module FortitudeRails
 
       self.theme_namespace = 'fortitude'
       self.stylesheet = 'application'
-      self.theme_docs = YAML.load(File.read(DOCS_YAML_PATH))
       self
     end
 
