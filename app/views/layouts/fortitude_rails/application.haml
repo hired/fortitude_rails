@@ -6,10 +6,16 @@
     %title Fortitude Docs
     %meta{content: 'width=device-width', name: 'viewport'}
     %link{rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'}
-    = stylesheet_link_tag 'fortitude_rails/base', media: 'all'
+    - if has_asset?(FortitudeRails.stylesheet.to_s + '.css')
+      = stylesheet_link_tag FortitudeRails.stylesheet, media: "all"
+      = stylesheet_link_tag 'fortitude_rails/code'
+    - else
+      = stylesheet_link_tag "fortitude_rails/fortitude_rails", media: "all"
     %link{href: 'http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400|Rajdhani', rel: 'stylesheet', type: 'text/css'}
     %script{src: 'https://code.jquery.com/jquery-2.1.1.min.js'}
     = javascript_include_tag 'fortitude_rails/application'
+    - if Rails.env.production?
+      %link{:href => "//cloud.typography.com/7210632/727402/css/fonts.css", :media => "all", :rel => "stylesheet"}/
 
   %body
     = render 'header'

@@ -1,75 +1,71 @@
-.layout
-  .layout__item.xs-mb2><
-    %h2.text-black-light.xs-beta.xs-inset2
-      Layouts
-      %small A digital frontier
-    %hr.text-gray-light
-    %p.xs-ptb1 CSS's flow layouts are a bit of a pain. Certain things simply cannot be done, like multiple columns with the same height, or vertically centered content inside a box with variable height. Fortitude fixes that.
-    %pre
-      %code.scss
-        :preserve
-          .layout           // the container for grid columns
-          .layout--flush    // no gutters, no spacing between columns
-          .layout--small    // halve default size of gutters
-          .layout--large    // double default size of gutters
-          .layout--middle   // vertically center layout items
-          .layout--center   // center layout items within the page
-          .layout__item&gt;&lt;   // goes inside .layout: sets columns side-by-side, with spacing and vertical alignment
-                            // all layout items MUST be followed by &gt;&lt; or they won't work
-  .layout__item.md-4of12><
-    %h3.text-black-light.xs-gamma Breakpoints
-    %p.xs-ptb1 Fortitude lets us be responsive by default. We use classes that combine a size and number of columns to set up layouts. The size is one of our breakpoints:
-  .layout__item.md-4of12><
-    %h3.text-black-light.xs-gamma Columns
-    %p.xs-ptb1 We also use 12 columns. The format for that is -Xof12. These are fluid columns, so they can be used anywhere, and will represent a percentage of the space available in the block. Here are some examples:
-  .layout__item.md-4of12><
-    %h3.text-black-light.xs-gamma Combined
-    %p.xs-ptb1 Finally, you can combine these to specify width on multiple screen sizes, so multi-column layouts will collapse on mobile screens (for exmaple)
-  .layout__item.md-4of12><
-    %pre
-      %code.scss
-        :preserve
-          .xs- //  100%
-          .sm- //  768px+
-          .md- //  992+
-          .lg- //  1200px+
-  .layout__item.md-4of12><
-    %pre
-      %code.scss
-        :preserve
-          .xs-6of12   //  50% of width, all sizes
-          .sm-8of12   //  ~66% of width on small and up
-                      // otherwise full-width
-          .md-1of12   //  ~8% of width on medium and up
-                      //  otherwise full-width
-          .lg-12of12  //  Full width on large and up
-  .layout__item.md-4of12><
-    %pre
-      %code.haml
-        :preserve
-          .md-6of12
-            This will be a 50% width column
-            on medium screens and up, but
-            full width on smaller screens.
+.layout__item.xs-mb2><
+  %h2.text-black-light.xs-beta.xs-inset2
+    Layouts
+  %hr.text-gray-light
+  %p.xs-ptb1 CSS's flow layouts are a bit of a pain. Certain things simply cannot be done, like multiple columns with the same height, or vertically centered content inside a box with variable height. Fortitude fixes that.
+  %pre
+    %code.scss
+      :preserve
+        .layout           // the container for grid columns
+        .layout--flush    // no gutters, no spacing between columns
+        .layout--small    // halve default size of gutters
+        .layout--large    // double default size of gutters
+        .layout--middle   // vertically center layout items
+        .layout--center   // center layout items within the page
+        .layout__item&gt;&lt;   // goes inside .layout: sets columns side-by-side, 
+                          // with spacing and vertical alignment
+                          // all layout items MUST be followed by &gt;&lt; or they won't work
+.layout__item><
+  %h3.text-black-light.xs-gamma Breakpoints
+  %p.xs-ptb1 Fortitude lets us be responsive by default. We use classes that combine a size and number of columns to set up layouts. The size is one of our breakpoints:
+  %pre.xs-mb1
+    %code.scss
+      :preserve
+        .xs- //  100%
+        .sm- //  768px+
+        .md- //  992+
+        .lg- //  1200px+
+.layout__item><
+  %h3.text-black-light.xs-gamma Columns
+  %p.xs-ptb1 We also use 12 columns. The format for that is -Xof12. These are fluid columns, so they can be used anywhere, and will represent a percentage of the space available in the block. Here are some examples:
+  %pre.xs-mb1
+    %code.scss
+      :preserve
+        .xs-6of12   //  50% of width, all sizes
+        .sm-8of12   //  ~66% of width on small and up
+                    // otherwise full-width
+        .md-1of12   //  ~8% of width on medium and up
+                    //  otherwise full-width
+        .lg-12of12  //  Full width on large and up
+.layout__item><
+  %h3.text-black-light.xs-gamma Combined
+  %p.xs-ptb1 Finally, you can combine these to specify width on multiple screen sizes, so multi-column layouts will collapse on mobile screens (for exmaple)
+  %pre.xs-mb1
+    %code.haml
+      :preserve
+        .md-6of12
+          This will be a 50% width column
+          on medium screens and up, but
+          full width on smaller screens.
 
-          .md-2of12.xs-6of12
-            This will be a 50% width column
-            on smaller screens, but only 25%
-            on medium and up screens.
-  .layout__item><
-    %h3.text-black-light.xs-gamma.xs-mbh0 Full Page Layout Example
-    %pre
-      %code.haml
-        :preserve
-          .box
-            .container
-              .layout
-                .layout__item
-                  %h1 Full width h1 tag
-              .layout
-                .layout__item.md-4of12&gt;&lt;
-                  %p Column 1 on medium screens, full-width on smaller screens
-                .layout__item.md-4of12&gt;&lt;
-                  %p Column 2 on medium screens, full-width on smaller screens
-                .layout__item.md-4of12&gt;&lt;
-                  %p Column 3 on medium screens, full-width on smaller screens
+        .md-2of12.xs-6of12
+          This will be a 50% width column
+          on smaller screens, but only 25%
+          on medium and up screens.
+.layout__item><
+  %h3.text-black-light.xs-gamma.xs-mbh0 Full Page Layout Example
+  %pre
+    %code.haml
+      :preserve
+        .box
+          .container
+            .layout
+              .layout__item
+                %h1 Full width h1 tag
+            .layout
+              .layout__item&gt;&lt;
+                %p Column 1 on medium screens, full-width on smaller screens
+              .layout__item&gt;&lt;
+                %p Column 2 on medium screens, full-width on smaller screens
+              .layout__item&gt;&lt;
+                %p Column 3 on medium screens, full-width on smaller screens

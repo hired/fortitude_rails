@@ -1,16 +1,22 @@
 module FortitudeRails
   module Configuration
+    GEM_PATH = File.expand_path '../..', File.dirname(__FILE__)
 
     OPTIONS = [
       :theme_intents,
       :theme_components,
-      :theme_namespace
+      :theme_namespace,
+      :stylesheet
     ]
 
     attr_accessor *OPTIONS
 
     def configure
       yield self
+    end
+
+    def self.gem_path
+      GEM_PATH
     end
 
     def self.extended(base)
@@ -30,8 +36,7 @@ module FortitudeRails
         flashbar
         fluid_container
         form
-        inline-list
-        input
+        inline_list
         layout
         list_navigation
         media
@@ -58,6 +63,8 @@ module FortitudeRails
       )
 
       self.theme_namespace = 'fortitude'
+      self.stylesheet = 'application'
+      self
     end
 
     OPTIONS.each do |option|

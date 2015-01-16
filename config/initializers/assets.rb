@@ -1,1 +1,1 @@
-Rails.application.config.assets.precompile += %w( fortitude_rails/base.css fortitude_rails/application.js )
+Rails.application.config.assets.precompile += %w( fortitude_rails/base.css fortitude_rails/application.js fortitude_rails/code.css )
