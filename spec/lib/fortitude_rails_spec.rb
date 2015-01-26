@@ -8,7 +8,7 @@ describe FortitudeRails do
   end
 
   it 'has theme components' do
-    expect(subject.theme_components).to be_an(Array)
+    expect(subject.theme_components).to be_a(Hash)
   end
 
 end
