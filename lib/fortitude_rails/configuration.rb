@@ -3,9 +3,10 @@ module FortitudeRails
     GEM_PATH = File.expand_path '../..', File.dirname(__FILE__)
 
     OPTIONS = [
-      :theme_intents,
       :theme_components,
+      :theme_intents,
       :theme_namespace,
+      :app_root,
       :stylesheet
     ]
 
@@ -24,35 +25,7 @@ module FortitudeRails
     end
 
     def set_default_configuration
-      self.theme_components = %w(
-        badge
-        bare_list
-        block_list
-        box
-        button
-        container
-        element
-        flag
-        flashbar
-        fluid_container
-        form
-        inline_list
-        layout
-        list_navigation
-        media
-        modal
-        navigationbar
-        shade
-        table
-        tabs
-        tabs_navigation
-        tooltip
-        typography
-        ui_list
-        wings
-        utilities
-      )
-
+      self.theme_components = doc_pages
       self.theme_intents = %w(
         default
         primary
@@ -67,10 +40,45 @@ module FortitudeRails
       self
     end
 
+    def gem_path
+      GEM_PATH
+    end
+
+    def doc_pages
+      @doc_pages ||= { 
+        'components' => directory_hash(File.join(gem_path, 'app', 'views', 'fortitude_rails', 'components'))
+      }
+    end
+
+    def app_pages
+      return @app_pages if @app_pages
+      return {} unless app_root
+      if Dir.exists?(File.join(app_root, 'app', 'views', 'fortitude_rails', 'components'))
+        @app_pages = { 'components' => directory_hash(Rails.root.join('app', 'views', 'fortitude_rails', 'components')) }
+      else
+        @app_pages = {}
+      end
+    end
+
     OPTIONS.each do |option|
       define_method "#{option}?" do
         self.send(option).present?
       end
     end
+
+    private
+      def directory_hash(path, name=nil)
+        data = {}
+        Dir.foreach(path) do |entry|
+          next if (entry == '..' || entry == '.')
+          full_path = File.join(path, entry)
+          if File.directory?(full_path)
+            data[entry] = directory_hash(full_path, entry)
+          else
+            data[entry] = 'file'
+          end
+        end
+        return data
+      end
   end
 end

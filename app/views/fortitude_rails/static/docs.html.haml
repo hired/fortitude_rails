@@ -4,11 +4,7 @@
       .sidebar__inner{style: 'top: 9rem'}
         %h2.text-black-light.xs-beta.xs-inset2.xs-mb1 Components
         %ul.list-navigation
-          - theme_components.each do |component_name|
-            %li
-              %a.list-navigation__link{href: "##{component_name.pluralize}"} #{component_name.humanize.pluralize}
+          = render_nav_tree(theme_components)
 
   .layout__item.sm-8of12.md-9of12><
-    - theme_components.each do |component_name|
-      .layout.xs-mb2.xs-mr2{id: component_name.pluralize}
-        = render_fortitude_component(component_name)
+    = render_component_tree(theme_components)

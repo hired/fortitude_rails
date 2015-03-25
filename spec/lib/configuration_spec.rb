@@ -4,7 +4,17 @@ describe FortitudeRails::Configuration do
 
   subject { Class.new { extend FortitudeRails::Configuration } }
 
-  before { subject.set_default_configuration }
+  before do
+    subject.set_default_configuration
+    subject.app_root = File.join(File.dirname(File.expand_path(__FILE__)), '..', 'dummy')
+    subject.theme_components = subject.theme_components.deep_merge(subject.app_pages)
+  end
+
+  it 'sets theme components' do
+    expect(subject.theme_components['components'].keys).to include('_flag.html.haml')        # from the engine
+    expect(subject.theme_components['components'].keys).to include('_app_specific.html.erb') # from the dummy app
+    expect(subject.theme_components['components']['nested'].keys).to include('_nested_component.html.erb') # from the dummy app
+  end
 
   it 'allows setting theme intents' do
     expect{subject.theme_intents = ['intent']}.to change{subject.theme_intents}
