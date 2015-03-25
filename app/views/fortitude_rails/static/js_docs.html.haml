@@ -1,0 +1,43 @@
+.layout.xs-mt2
+  .layout__item.xs-none.sm-4of12.md-3of12.xs-none.sm-inline-block><
+    .box.sidebar.sidebar--settings.sidebar--is-fixed.sm-mt1.sm-ml1><
+      .sidebar__inner{style: 'top: 9rem'}
+        %h2.text-black-light.xs-beta.xs-inset2.xs-mb1 JS Components
+        %ul.list-navigation
+          %li.list-navigation__item
+            %a.list-navigation__link{href: '#tabs'} Tabs
+          %li.list-navigation__item
+            %a.list-navigation__link{href: '#modal'} Modal
+          %li.list-navigation__item
+            %a.list-navigation__link{href: '#dropdown'} Dropdowns
+          %li.list-navigation__item
+            %a.list-navigation__link{href: '#tooltip'} Tooltip
+          %li.list-navigation__item
+            %a.list-navigation__link{href: '#shade'} Shade
+          %li.list-navigation__item
+            %a.list-navigation__link{href: '#flashbar'} Flashbar
+          %li.list-navigation__item
+            %a.list-navigation__link{href: '#select'} Select Placeholders
+          %li.list-navigation__item
+            %a.list-navigation__link{href: '#screenlock'} Lock Screen
+          %li.list-navigation__item
+            %a.list-navigation__link{href: '#navbar'} Navbar
+
+
+
+  .layout__item.sm-8of12.md-9of12><
+    #tabs.layout.xs-mtb2.xs-mr2
+      .layout__item><
+        %h2.text-black-light.xs-beta.xs-inset2 Tabs
+        %hr.text-gray-light
+        %p.xs-ptb1 Tabs allow you to make a nice pane / window view, and use simple html data-attributes to manage tab selection.
+        %pre
+          %code.scss
+            :preserve
+              .tabs-navigation
+                .tabs-navigation__item{data: {ft: {tab: 'my-tab'}}}
+                  %a.tabs-navigation__link{href: '#'} Link to my-tab
+
+              .tabs
+                #my-tab.tabs__target
+                  My tab content
