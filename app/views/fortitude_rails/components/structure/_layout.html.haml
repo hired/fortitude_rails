@@ -1,0 +1,207 @@
+.library__anchor-helper#layout
+%section.library__section
+  %h2 Layout
+  = library_example title: '12 Columns' do |example|
+    .layout.layout--grid-example
+      .layout__item.md-1of12><
+        .grid-tile 1 of 12
+      .layout__item.md-1of12><
+        .grid-tile 1 of 12
+      .layout__item.md-1of12><
+        .grid-tile 1 of 12
+      .layout__item.md-1of12><
+        .grid-tile 1 of 12
+      .layout__item.md-1of12><
+        .grid-tile 1 of 12
+      .layout__item.md-1of12><
+        .grid-tile 1 of 12
+      .layout__item.md-1of12><
+        .grid-tile 1 of 12
+      .layout__item.md-1of12><
+        .grid-tile 1 of 12
+      .layout__item.md-1of12><
+        .grid-tile 1 of 12
+      .layout__item.md-1of12><
+        .grid-tile 1 of 12
+      .layout__item.md-1of12><
+        .grid-tile 1 of 12
+      .layout__item.md-1of12><
+        .grid-tile 1 of 12
+
+    .layout.layout--grid-example
+      .layout__item.md-8of12><
+        .grid-tile 8 of 12
+      .layout__item.md-4of12><
+        .grid-tile 4 of 12
+
+    .layout.layout--grid-example
+      .layout__item.md-4of12><
+        .grid-tile 4 of 12
+      .layout__item.md-4of12><
+        .grid-tile 4 of 12
+      .layout__item.md-4of12><
+        .grid-tile 4 of 12
+
+    .layout.layout--grid-example
+      .layout__item.md-6of12><
+        .grid-tile 6 of 12
+      .layout__item.md-6of12><
+        .grid-tile 6 of 12
+
+    - example.call :description, -> do
+      .content--markdown
+        :markdown
+          This fortitude theme uses a 12-column grid, and rows and columns can be represented with the `.layout` and `.layout__item` classes respectively.
+
+    - example.call :html, -> do
+      .layout
+        .layout__item.md-1of12><
+        .layout__item.md-1of12><
+        .layout__item.md-1of12><
+        .layout__item.md-1of12><
+        .layout__item.md-1of12><
+        .layout__item.md-1of12><
+        .layout__item.md-1of12><
+        .layout__item.md-1of12><
+        .layout__item.md-1of12><
+        .layout__item.md-1of12><
+        .layout__item.md-1of12><
+        .layout__item.md-1of12><
+      .layout
+        .layout__item.md-8of12><
+        .layout__item.md-4of12><
+      .layout
+        .layout__item.md-4of12><
+        .layout__item.md-4of12><
+        .layout__item.md-4of12><
+      .layout
+        .layout__item.md-6of12><
+        .layout__item.md-6of12><
+
+
+  = library_example title: 'Responsive Grid' do |example|
+    .layout.layout--grid-example
+      .layout__item.sm-8of12.md-6of12.lg-4of12><
+        .grid-tile
+          :plain
+            sm-8of12 md-6of12 lg-4of12
+      .layout__item.sm-4of12.md-6of12.lg-8of12><
+        .grid-tile
+          :plain
+            sm-4of12 md-6of12 lg-8of12
+    - example.call :html, -> do
+      .layout
+        .layout__item.sm-8of12.md-6of12.lg-4of12><
+        .layout__item.sm-4of12.md-6of12.lg-8of12><
+
+    - example.call :description, -> do
+      .content--markdown
+        :markdown
+          You can re-arrange content for different screen sizes using responsive width helpers. Resize your window and watch the columns in this example go from full-width at the `xs` size to 8 columns at `sm`, 6 columns at `md`, and 4 columns at `lg`.
+
+
+  %h1 Utility Extensions
+
+  %h2 Gutter Size
+
+  = library_example title: 'Default' do |example|
+    .layout
+      .layout__item.md-8of12><
+        .grid-tile.grid-tile--tall The default size
+      .layout__item.md-4of12><
+        .grid-tile nothing special
+    - example.call :mixin, -> do
+      :plain
+        .my-layout {
+          @include $fortitude-layout;
+        }
+        .my-layout__item {
+          @include $fortitude-layout__item;
+        }
+
+  = library_example title: 'Small' do |example|
+    .layout.layout--small
+      .layout__item.md-8of12><
+        .grid-tile.grid-tile--tall Check out
+      .layout__item.md-4of12><
+        .grid-tile These tiny gutters
+    - example.call :mixin, -> do
+      :plain
+        .my-layout {
+          @include $fortitude-layout(small);
+        }
+        .my-layout__item {
+          @include $fortitude-layout__item(small);
+        }
+
+  = library_example title: 'Large' do |example|
+    .layout.layout--large
+      .layout__item.md-8of12><
+        .grid-tile.grid-tile--tall Check out
+      .layout__item.md-4of12><
+        .grid-tile These huge gutters
+    - example.call :mixin, -> do
+      :plain
+        .my-layout {
+          @include $fortitude-layout(large);
+        }
+        .my-layout__item {
+          @include $fortitude-layout__item(large);
+
+  = library_example title: 'Flush' do |example|
+    .layout.layout--flush
+      .layout__item.md-8of12><
+        .grid-tile no
+      .layout__item.md-4of12><
+        .grid-tile gutters
+    - example.call :mixin, -> do
+      :plain
+        .my-layout {
+          @include $fortitude-layout(flush);
+        }
+        .my-layout__item {
+          @include $fortitude-layout__item(flush);
+
+  %h2 Verical Alignment
+
+  = library_example title: 'Default' do |example|
+    .layout
+      .layout__item.md-8of12><
+        .grid-tile.grid-tile--tall No matter how tall this gets
+      .layout__item.md-4of12><
+        .grid-tile This will still be at the top
+    - example.call :mixin, -> do
+      :plain
+        .my-layout {
+          @include $fortitude-layout;
+        }
+        .my-layout__item {
+          @include $fortitude-layout__item;
+
+  = library_example title: 'Middle' do |example|
+    .layout.layout--middle
+      .layout__item.md-8of12><
+        .grid-tile.grid-tile--tall No matter how tall this gets
+      .layout__item.md-4of12><
+        .grid-tile This will still be in the middle
+    - example.call :mixin, -> do
+      :plain
+        .my-layout {
+          @include $fortitude-layout(middle);
+        }
+        .my-layout__item {
+          @include $fortitude-layout__item(middle);
+
+  = library_example title: 'Bottom' do |example|
+    .layout.layout--bottom
+      .layout__item.md-8of12><
+        .grid-tile.grid-tile--tall No matter how tall this gets
+      .layout__item.md-4of12><
+        .grid-tile This will still be at the bottom
+    - example.call :mixin, -> do
+      :plain
+        .my-layout {
+          @include $fortitude-layout(bottom);
+        }
+        .my-layout__item {
+          @include $fortitude-layout__item(bottom);

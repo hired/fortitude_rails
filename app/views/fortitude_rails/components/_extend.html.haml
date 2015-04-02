@@ -1,0 +1,140 @@
+.library__anchor-helper#extend
+%section.library__section
+  %h2 Semantic Page CSS
+  .example
+    .example__preview
+      %p
+        While it is possible to write prototype haml with structural classes like .layout and .box sprinkled all over the markup,
+        we discourage this practice on any given page in the long-run due to the debt-creep of large
+        view files and convoluted markup.
+      %br
+      %p
+        As a view file's markup grows in complexity, we employ a new abstraction to encapsulate the complexity
+        through SASS's `@extend` and `@include` directives. This allows you to create a semantic alias for what otherwise would be a smattering
+        of helper classes in the markup.
+
+        %a{href: 'https://github.com/hired/hired/pull/1659/files?diff=split#diff-1', target: '_blank'} View an example semantic refactor on GitHub
+
+      %br
+
+    %pre.example__code
+      = code_highlight(lang: 'sass') do
+        :plain
+          .candidates-offer-page {
+            .compensation-fields {
+              // include any components you need
+              // it's important to include and not extend to generate cleaner CSS.
+              // Each component's @include API will be documented along with
+              //  its cass API. (See that component's docs for details... coming soon)
+              @include layout;
+            }
+
+            .compensation-field {
+              // see below for responsive helper caveat
+              @include breakpoint('sm') {
+                @extend .sm-3of12;
+              }
+            }
+
+            .compensation-field__title {
+              @include text-gray;
+              @include text-medium;
+              @include text-uppercase;
+
+              // extend responsive helpers of all types, starting with mobile first.
+              @extend .xs-zeta;
+              @extend .xs-mbh0;
+            }
+
+            .compensation-field__value {
+              @extend .xs-epsilon;
+            }
+          }
+
+      = code_highlight(lang: 'haml') do
+        :plain
+          .candidates-offer-page
+             .compensation-fields
+                .compensation-field><
+                  .compensation-field__title Equity
+                  .compensation-field__value .01%
+                .compensation-field><
+                  .compensation-field__title Signing Bonus
+                  .compensation-field__value $10,000
+                .compensation-field><
+                  .compensation-field__title Annual Bonus
+                  .compensation-field__value $5,000
+                .compensation-field><
+                  .compensation-field__title Relocation
+                  .compensation-field__value $5,000
+  %br
+  .example
+    .example__preview
+      %h4.xs-pb1 Setting up your page's CSS sandbox
+      %p.xs-pb1
+        We've provided a generator that wraps your view file in a page-specific class name to encapsulate all of your styles.
+
+    %pre.example__code
+      = code_highlight(lang: :plain) do
+        :plain
+          Generator Format:
+          $ rails generate page_css_sandbox page-name path/to/root/view_file/in/app/views.html.haml
+
+          Example:
+          $ rails g page_css_sandbox candidates-offer candidates/offers/show.html.haml
+
+          This will create:
+              app/assets/stylesheets/new_application/hired/pages/candidates_offer.scss
+
+          And will modify:
+              app/views/candidates/offers/show to wrap the existing content in a new'.candidates-offer-page' class.
+
+          No you can go to town making new classes for yourself that are specific to that page's domain as needed.
+
+  %br
+
+  .example
+    .example__preview
+      %h4.xs-pb1 Mobile gotcha: wrap responsive helpers in a breakpoint block!
+
+      %p
+        Continuing the pattern above, you'll probably want to do something like `@extend .md-5of12` inside one of your classes.
+        Unfortunately this is not possible in SASS without a helping the compiler just a little bit.
+        The SASS compiler will simply throw an error if you attempt to `@extend` a responsive helper that is larger than `xs`
+        without wrapping it in a breakpoint block.
+
+      %br
+      %p
+        Shown below is an example of how one can create a semantic class composed of different classes for different screen sizes.
+        Let's say we want our .compensation-field to have different widths and font-sizes.
+      %br
+
+    %pre.example__code
+      = code_highlight(lang: 'sass') do
+        :plain
+          .compensation-field {
+            // include any components you need
+            @include layout;
+
+            // extend responsive helpers of all types, starting with mobile first.
+            // these definitions are the default
+            // but other screen sizes can be added below
+            @extend .xs-alpha;  // set font-size
+            @extend .xs-10of12; // set column width
+
+            // wrap responsive helpers for larger screen-sizes
+            @include breakpoint('sm') {
+              @extend .sm-gamma;
+              @extend .sm-7of12;
+            }
+
+            @include breakpoint('md') {
+              @extend .md-delta;
+              @extend .md-6of12;
+            }
+
+            @include breakpoint('lg') {
+              @extend .lg-beta;
+              @extend .lg-4of12;
+            }
+          }

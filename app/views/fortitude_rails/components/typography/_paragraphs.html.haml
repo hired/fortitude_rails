@@ -1,0 +1,51 @@
+.library__anchor-helper#typography-paragraphs
+%section.library__section
+  %h2 Paragraphs
+
+  %h3 Default
+  .example
+    .example__preview
+      %p The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
+      .example__preview__spacer
+      %p.p--tall The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
+      .example__preview__spacer
+      %p.p--short The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
+      .example__preview__spacer
+    %pre.example__code
+      = code_highlight(lang: 'haml') do
+        :plain
+          %p …
+          %p.p--tall …
+          %p.p--short …
+
+  %h3 Lead
+  .example
+    .example__preview
+      %p.p--lead The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
+      .example__preview__spacer
+      %p.p--lead.p--tall The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
+      .example__preview__spacer
+      %p.p--lead.p--short The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
+      .example__preview__spacer{style: 'padding-bottom: 2.5rem;'}
+    %pre.example__code
+      = code_highlight(lang: 'haml') do
+        :plain
+          %p.p--lead …
+          %p.p--lead.p--tall …
+          %p.p--lead.p--short …
+
+  %h3 Micro
+  .example
+    .example__preview
+      %p.p--micro The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
+      .example__preview__spacer
+      %p.p--micro.p--tall The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
+      .example__preview__spacer
+      %p.p--micro.p--short The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
+      .example__preview__spacer{style: 'padding-bottom: 3.5rem;'}
+    %pre.example__code
+      = code_highlight(lang: 'haml') do
+        :plain
+          %p.p--micro …
+          %p.p--micro.p--tall …
+          %p.p--micro.p--short …

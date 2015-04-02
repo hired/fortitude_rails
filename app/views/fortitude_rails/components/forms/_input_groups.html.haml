@@ -1,0 +1,35 @@
+.library__anchor-helper#forms-input_groups
+
+= library_example title: 'Input Groups' do |example|
+  .field
+    %label.block-label Default
+    .input-group.input-group--full
+      .input-group__addon $
+      %input.text-input.input--full{type: 'text', placeholder: 'Placeholder'}
+
+  .field
+    %label.block-label Disabled
+    .input-group.input-group--full
+      .input-group__addon $
+      %input.text-input.input--full{type: 'text', placeholder: 'Placeholder', disabled: true}
+
+  .field.field--invalid.field--required
+    %label.block-label Error
+    .input-group.input-group--full
+      .input-group__addon $
+      %input.text-input.input--full{type: 'text', placeholder: 'Placeholder'}
+    .field__message can't be blank
+
+  - example.call :form_builder, -> do
+    :plain
+      = f.field :default do
+        = f.label :default, class: 'block-label xs-mbh0'
+        .input-group.input-group--full
+          .input-group__addon $
+          = f.text_field :default, class: 'text-input input--full', placeholder: 'Placeholder'
+
+      = f.field :disabled do
+        = f.label :disabled, class: 'block-label xs-mbh0'
+        .input-group.input-group--full
+          .input-group__addon $
+          = f.text_field :disabled, class: 'text-input input--full', placeholder: 'Placeholder', disabled: true

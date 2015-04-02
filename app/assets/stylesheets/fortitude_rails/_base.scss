@@ -1,2 +1,143 @@
 @import "fortitude/theme";
 @import "railscasts";
+
+body.basehold-it {
+  position: relative;
+}
+
+body.basehold-it:after {
+  position: absolute;
+  width: auto;
+  height: auto;
+  z-index: 9999;
+  content: '';
+  display: block;
+  pointer-events: none;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: image-url('home/basehold-it-20.png') repeat top left;
+}
+
+body.basehold-it:active:after {
+  display: none;
+}
+
+.library {
+  @extend .xs-prl1;
+  @extend .xs-pt3;
+
+  .layout--grid-example {
+    padding-bottom: $base-spacing-unit;
+  }
+
+  .grid-tile {
+    @include fortitude-box(gray-light rounded);
+    transition: padding 0.5s ease;
+    padding: $base-spacing-unit;
+    background-color: $brand-blue-light;
+    box-shadow: inset 0 0 0 0.1rem $brand-blue-dark;
+    font-size: 1.4rem;
+    line-height: $base-spacing-unit;
+  }
+
+  .grid-tile--tall {
+    padding: 4 * $base-spacing-unit 2 * $base-spacing-unit;
+  }
+
+  .grid-tile--grow-on-hover:hover {
+    transition: padding 0.5s ease;
+    padding: 4 * $base-spacing-unit 3 * $base-spacing-unit;
+  }
+
+  .example--layout-extensions {
+    h4 {
+      padding: (0.5 * $base-spacing-unit) 0;
+    }
+
+    .field {
+      margin-bottom: $base-spacing-unit;
+
+      %label.block-label {
+        margin-bottom: 0.5 * $base-spacing-unit;
+      }
+    }
+
+    .wings {
+      margin-bottom: $base-spacing-unit;
+    }
+  }
+
+  ul.example__tabs-navigation {
+    @include fortitude-tabs-navigation;
+    @include fortitude-tabs-navigation--fixed;
+  }
+
+  li.example__tabs__item {
+    @include fortitude-tabs-navigation__item;
+    background-color: $brand-white-dark;
+    color: $brand-black-dark;
+  }
+
+  a.example__tabs__link{
+    @include fortitude-tabs-navigation__link;
+    color: $brand-black-dark;
+    padding: 0.5 * $base-spacing-unit;
+    font-size: 1.25 * $fortitude-base-font-size;
+    font-weight: 400;
+  }
+
+  li.example__tabs__item--is-active {
+    background-color: $brand-white;
+  }
+
+  .example__preview__item {
+    display: block;
+    padding:  0.75 * $base-spacing-unit 0;
+  }
+}
+
+.library__section {
+  @extend .xs-mb3;
+
+  + & {
+    @extend .xs-mt3;
+  }
+
+  > h2 {
+    @extend .xs-mb2;
+    @extend .text-uppercase;
+  }
+
+  > h3 {
+    @extend .text-light;
+    @extend .xs-mb1;
+    @extend .text-uppercase;
+  }
+
+  > h4, > h5 {
+    padding: $base-spacing-unit 0.5 * $base-spacing-unit;
+  }
+
+  > p {
+    padding: $base-spacing-unit 0;
+  }
+
+  > .content--markdown,
+  > .example {
+    @extend .xs-mb1;
+  }
+}
+
+.library__anchor-helper {
+  position: relative;
+  top: $base-spacing-unit * -3;
+}
+
+
+@include breakpoint('md') {
+  .library {
+    @extend .md-prl3;
+  }
+}

@@ -1,0 +1,16 @@
+- block_name = :buttons
+- colors = {primary: {class: 'button--primary'}, secondary: {class: 'button--secondary'}, tertiary: {class: 'button--tertiary'}, red: {class: 'button--red'}, orange: {class: 'button--orange'}, gray_light: {class: 'button--gray-light'}, github: {class: 'button--github'}, facebook: {class:'button--facebook'}, twitter: {class: 'button--twitter'}}
+- sizes = {small: {class: 'button--small button--secondary'}, large: {class: 'button--large button--secondary'}, full: {class: 'button--full button--secondary'}}
+- states = {disabled: {class: 'button--secondary', disabled: true}}
+- extensions = {colors: colors, sizes: sizes, states: states}
+.library__anchor-helper{id: block_name.to_s.parameterize}
+%section.library__section
+  %h2 #{block_name.to_s.titleize}
+  .content--markdown
+    :markdown
+      Should be used for actions that will cause any significant change to data or interactions in your app.
+  - extensions.each do |title, types|
+    = library_example title: title.to_s.titleize do |example|
+      - types.each do |type, attributes|
+        .example__preview__item
+          %button.button{attributes} #{type.to_s.titleize}

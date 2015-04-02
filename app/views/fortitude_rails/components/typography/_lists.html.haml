@@ -1,0 +1,102 @@
+.library__anchor-helper#typography-lists
+%section.library__section
+  %h2 Lists
+  %h3 Ordered List
+  .example
+    .example__preview
+      %ol
+        %li Item one
+        %li Item two
+        %ol
+          %li Item two:a
+          %li Item two:b
+          %li Item two:c
+        %li Item three
+      .example__preview__spacer
+
+    %pre.example__code
+      = code_highlight(lang: 'haml') do
+        :plain
+          %ol
+            %li Item one
+            %li Item two
+            %ol
+              %li Item two:a
+              %li Item two:b
+              %li Item two:c
+            %li Item three
+
+  %h3 Bulleted List
+  .example
+    .example__preview
+      %ul
+        %li Item one
+        %li Item two
+        %ul
+          %li Item two:a
+          %li Item two:b
+          %li Item two:c
+        %li Item three
+      .example__preview__spacer
+
+    %pre.example__code
+      = code_highlight(lang: 'haml') do
+        :plain
+          %ul
+            %li Item one
+            %li Item two
+            %ul
+              %li Item two:a
+              %li Item two:b
+              %li Item two:c
+            %li Item three
+
+  %h3 Bare List
+  .example
+    .example__preview
+      %ul.bare-list
+        %li Item one
+        %li Item two
+        %ul.bare-list
+          %li Item two:a
+          %li Item two:b
+          %li Item two:c
+        %li Item three
+      .example__preview__spacer
+
+    %pre.example__code
+      = code_highlight(lang: 'haml') do
+        :plain
+          %ul.bare-list
+            %li Item one
+            %li Item two
+            %ul.bare-list
+              %li Item two:a
+              %li Item two:b
+              %li Item two:c
+            %li Item three
+
+  %h3 Bare List with Dotted Line extension
+  .example
+    .example__preview
+      %ul.bare-list
+        %li Item one
+        %li Item two
+        %ul.list--dotted-line
+          %li Item two:a
+          %li Item two:b
+          %li Item two:c
+        %li Item three
+      .example__preview__spacer
+
+    %pre.example__code
+      = code_highlight(lang: 'haml') do
+        :plain
+          %ul.bare-list
+            %li Item one
+            %li Item two
+            %ul.list--dotted-line
+              %li Item two:a
+              %li Item two:b
+              %li Item two:c
+            %li Item three

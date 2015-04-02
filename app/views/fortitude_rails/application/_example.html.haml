@@ -1,0 +1,32 @@
+- tabIdRoot = SecureRandom.hex
+%h3= title
+.example.example--layout-extensions
+  .example__preview
+    = component
+    = description
+  %ul.tabs-navigation.tabs-navigation--fixed><
+    %li.tabs-navigation__item.tabs-navigation__item--is-active{data: {ft: {tab: "#{tabIdRoot}-1"}}}><
+      %a.tabs-navigation__link{href: 'javascript:void 0;'} Haml
+    %li.tabs-navigation__item{data: {ft: {tab: "#{tabIdRoot}-2"}}}><
+      %a.tabs-navigation__link{href: 'javascript:void 0;'} HTML
+    - if mixin.present?
+      %li.tabs-navigation__item{data: {ft: {tab: "#{tabIdRoot}-3"}}}><
+        %a.tabs-navigation__link{href: 'javascript:void 0;'} Mixin
+    - if form_builder.present?
+      %li.tabs-navigation__item{data: {ft: {tab: "#{tabIdRoot}-4"}}}><
+        %a.tabs-navigation__link{href: 'javascript:void 0;'} Form Builder
+  .tabs
+    %pre.tabs__target.example__code.tabs__target--is-active{id: "#{tabIdRoot}-1"}
+      = code_highlight(lang: :haml) do
+        = ::Html2haml::HTML.new(html || component, ruby19_style_attributes: true).render.html_safe
+    %pre.tabs__target.example__code{id: "#{tabIdRoot}-2"}
+      = code_highlight(lang: :html) do
+        = ::HtmlBeautifier.beautify(html || component).html_safe
+    - if mixin.present?
+      %pre.tabs__target.example__code{id: "#{tabIdRoot}-3"}
+        = code_highlight(lang: :sass) do
+          = mixin
+    - if form_builder.present?
+      %pre.tabs__target.example__code{id: "#{tabIdRoot}-4"}
+        = code_highlight(lang: :haml) do
+          = form_builder

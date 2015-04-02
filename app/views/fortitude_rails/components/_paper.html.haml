@@ -1,0 +1,25 @@
+.library__anchor-helper#paper
+%section.library__section
+  = library_example title: 'Paper' do |example|
+    .box.box--black-light{style: 'padding: 10rem 0;'}
+      .paper{style: 'margin-top: 0;'}
+        %section
+          %h3.paper__title Give us your info
+          %p.paper__subtitle So we can better serve you.
+        %hr
+        %section
+          %h4 Other content can go here.
+          %p Forms or splash content with a CTA will probably be the target experience here.
+
+    - example.call :html, -> do
+      .paper
+        %section
+          %h3.paper__title Give us your info
+          %p.paper__subtitle So we can better serve you.
+        %hr
+        %section
+          %h4 Other content can go here.
+          %p Forms or splash content with a CTA will probably be the target experience here.
+    - example.call :description, -> do
+      %p.xs-pt1 Use a paper container for basic form pages.
+      %p We use this page container in both employer and candidate onboarding flows, and it is well suited for any other one-off CRUD form experiments.

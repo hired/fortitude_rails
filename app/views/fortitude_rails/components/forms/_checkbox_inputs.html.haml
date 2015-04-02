@@ -1,0 +1,32 @@
+.library__anchor-helper#forms-checkbox_inputs
+= library_example title: 'Checkbox Inputs' do |example|
+  .field
+    %input.checkbox-input{type: 'checkbox'}
+    %label Default
+
+  .field
+    %input.checkbox-input{type: 'checkbox', checked: true}
+    %label Checked
+
+  .field
+    %input.checkbox-input{type: 'checkbox', disabled: true}
+    %label Disabled
+
+  .field.field--invalid.field--required
+    %input.checkbox-input{type: 'checkbox'}
+    %label Error
+    .field__message can't be blank
+
+  - example.call :form_builder, -> do
+    :plain
+      = f.field :default do
+        = f.label :default
+        = f.check_box :default, class: 'checkbox-input'
+
+      = f.field :checked do
+        = f.label :checked
+        = f.check_box :checked, class: 'checkbox-input', checked: true
+
+      = f.field :disabled do
+        = f.label :disabled
+        = f.check_box :disabled, class: 'checkbox-input', disabled: true

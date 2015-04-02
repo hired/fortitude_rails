@@ -1,0 +1,22 @@
+.library__anchor-helper#navigationbars
+%section.library__section
+  %h2 Navigationbars
+  = library_example title: 'Default' do |example|
+    %nav.navigationbar
+      .fluid-container
+        .navigationbar__header
+          %a.navigationbar__header__logo{href: root_path} Brand Name
+        .navigationbar__toggle
+          .navigationbar__toggle__element
+            %i.fa.fa-bars
+          %input.navigationbar__toggle__helper{type: 'checkbox'}
+          %ul.navigationbar__navigation
+            %li.navigationbar__item
+              %a.navigationbar__link{href: about_path} About
+            %li.navigationbar__item
+              %a.navigationbar__link{href: login_path} Sign in
+
+    - example.call :description, -> do
+      .content--markdown.xs-pt1
+        :markdown
+          Can be used to display navigational links and logo

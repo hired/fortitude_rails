@@ -1,0 +1,26 @@
+- block_name = :flashbars
+- colors = {blue_light: {class: 'flashbar--blue-light'}, green_light: {class: 'flashbar--green-light'}, red_light: {class: 'flashbar--red-light'}, orange_light: {class: 'flashbar--orange-light'}}
+- extensions = {colors: colors}
+.library__anchor-helper{id: block_name.to_s.parameterize}
+%section.library__section
+  %h2 #{block_name.to_s.titleize}
+  .content--markdown
+    :markdown
+      Can display notifications, alerts, and special promos. Here, we have them inside a `.container`, but normally you would only want them at the top level, outside the grid do they are full-width.
+  - extensions.each do |title, types|
+    .library__anchor-helper{id: "#{block_name.to_s.parameterize}-#{title.to_s.parameterize}"}
+    = library_example title: title.to_s.titleize do |example|
+      - types.each do |type, attributes|
+        .example__preview__item
+          .flashbar{attributes}
+            %a.flashbar__close{href: '#'} &times;
+            .fluid-container #{type.to_s.titleize}
+
+  .library__anchor-helper#flashbars-hibar
+
+  = library_example title: 'Hibar' do |example|
+    .flashbar.flashbar--hibar
+      %a.flashbar__close{href: '#'} &times;
+      .fluid-container.xs-text-center
+        Hibar
+        %a.button.button--hibar{href: '#'} Go

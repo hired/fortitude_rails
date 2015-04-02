@@ -1,0 +1,24 @@
+.library__anchor-helper#forms-textarea_inputs
+= library_example title: 'Textarea Inputs' do |example|
+  .field
+    %label.block-label Default
+    %textarea.textarea-input.input--full{type: 'text', placeholder: 'Placeholder'}
+
+  .field
+    %label.block-label Disabled
+    %textarea.textarea-input.input--full{type: 'text', placeholder: 'Placeholder', disabled: true}
+
+  .field.field--invalid.field--required
+    %label.block-label Error
+    %textarea.textarea-input.input--full{type: 'text', placeholder: 'Placeholder'}
+    .field__message can't be blank
+
+  - example.call :form_builder, -> do
+    :plain
+      = f.field :default do
+        = f.label :default, class: 'block-label xs-mbh0'
+        = f.text_area :default, class: 'textarea-input input--full', placeholder: 'Placeholder'
+
+      = f.field :disabled do
+        = f.label :disabled, class: 'block-label xs-mbh0'
+        = f.text_area :disabled, class: 'textarea-input input--full', placeholder: 'Placeholder', disabled: true
