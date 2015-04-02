@@ -1,0 +1,52 @@
+Description:
+    This generator will install the SCSS and JS to your asset pipeline AND generate your style-guide's scaffolding.
+
+    format: rails generate fortitude_rails:install #{StyleGuideResourceName} #{AssetManifestName}
+
+
+Examples:
+    Default:
+        rails g fortitude_rails:install #> by default, uses "Library" and "application"
+
+        This will create:
+            app/assets/stylesheets/base.scss (@imports fortitude and FontAwesome)
+            app/controllers/library_controller.rb
+            app/helpers/library_helper.rb
+            app/views/library/show.html.haml
+
+            And the directory structures for your future customizations:
+            app/assets/stylesheets/api/
+            app/assets/stylesheets/api/components/
+            app/assets/stylesheets/api/tools/
+            app/assets/stylesheets/components/
+            app/assets/stylesheets/extensions/
+            app/assets/stylesheets/pages/
+            app/assets/stylesheets/settings/
+            app/assets/stylesheets/utilities/
+
+            Check out http://fortitude.io/docs#folder-structure for more details.
+
+
+        And will modify:
+            app/assets/stylesheets/application.css (if it doesn't require_tree)
+            app/assets/javascripts/application.js (adds `= require fortitude`)
+            config/routes.rb (adds `get /library, 'library#show'`)
+            Gemfile (adds `gem 'font-awesome-sass'`, you can delete it if you want to use another icon font)
+
+    Customization:
+        You can also supply your own resource and manifest name.
+
+        rails g fortitude_rails:install StyleGuide another_application_manifest
+
+
+        This will create:
+            app/assets/stylesheets/fortitude.scss
+            app/controllers/style_guide_controller.rb
+            app/helpers/style_guide_helper.rb
+            app/views/style_guide/show.html.haml
+
+
+        And will modify:
+            app/assets/stylesheets/another_application_manifest.css (if it doesn't require_tree)
+            app/assets/javascripts/another_application_manifest.js (adds `= require fortitude`)
+            config/routes.rb (adds `get /style_guide, 'style_guide#show'`)

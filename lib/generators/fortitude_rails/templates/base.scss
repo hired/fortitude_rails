@@ -1,0 +1,10 @@
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "settings/*";
+// @import "fortitude"; if you don't want bootstrap with the provided theme
+@import "fortitude/theme";
+@import "api/tools/*";
+@import "api/components/*";
+@import "components/*";
+@import "extensions/*";
+@import "pages/*";

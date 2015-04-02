@@ -1,0 +1,28 @@
+// EXAMPLE COMPONENT:
+//
+//    @mixin dropdown {
+//      // base implementation
+//    }
+//
+//    @mixin dropdown--large {
+//      // structural extension used with base implementation
+//    }
+//
+//    @mixin dropdown--small {
+//      // structural extension used with base implementation
+//    }
+//
+//    @mixin dropdown__list {
+//      // base implementation child
+//    }
+//
+//    @mixin dropdown__list--large {
+//      // structural extension used with base implementation child
+//    }
+//
+//    @mixin dropdown__list--small {
+//      // structural extension used with base implementation child
+//    }
+//
+//
+// USAGE: check out app/assets/stylesheets/components/_example.scss for example usage

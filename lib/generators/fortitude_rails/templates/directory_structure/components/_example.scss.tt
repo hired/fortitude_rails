@@ -1,0 +1,30 @@
+// EXAMPLE
+//
+//    .dropdown {
+//      @include dropdown;
+//    }
+//
+//    .dropdown--large {
+//      @include dropdown--large;
+//    }
+//
+//    .dropdown__list {
+//      @include dropdown__list;
+//    }
+//
+//
+//    .navigationbar__dropdown {
+//      @include dropdown;
+//      @include dropdown--large;
+//    }
+//
+//    .navigationbar__dropdown__list {
+//      @include dropdown__list;
+//      @include dropdown__list--large;
+//    }
+//
+//  DECLARING COMPONENT MIXINS:
+//      Check out app/assets/stylesheets/api/components/_example.scss for example mixin declaration.
+//
+//      If your component doesn't need to be mixin-able, you can always just write CSS.
+//

@@ -1,0 +1,18 @@
+//
+// As a page gets more complex, you may need to employ a semantic refactor or apply some one-off styles.
+// Use a page-class wrapper to provide a sandbox for isolating this logic.
+//
+// EXAMPLE
+//    .shopping-cart-page {
+//
+//      .quantity-chooser {
+//        @include dropdown;
+//        font-size: 2 * $base-spacing-unit; // designer says this is necessary lol
+//      }
+//
+//      .quantity-options {
+//        @include dropdown__list;
+//      }
+//
+//    }
+//

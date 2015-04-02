@@ -1,0 +1,28 @@
+//
+// All visual representations belong in the extensions folder.
+//
+// If your component only has one visual style, go ahead and add the styles to your base class.
+//
+//   .dropdown {
+//     color: black;
+//   }
+//
+// If your component supports multiple variants, use BEM notation and create extensions to avoid *fighting the cascade*.
+//
+//   .dropdown--primary {
+//     color: white;
+//     background-color: black;
+//   }
+//
+//   .dropdown--secondary {
+//     color: white;
+//     background-color: gray;
+//   }
+//
+// USAGE: <nav class="dropdown dropdown--primary">...</nav>
+//
+// For more information on why this separation is useful, please check out http://fortitude.io/architecture
+//
+
+
+
