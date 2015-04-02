@@ -1,0 +1,39 @@
+- block_name = :tabs_navigations
+- colors = {white: {class: 'tabs-navigation--white'}, white_light: {class: 'tabs-navigation--white-light'}}
+- types = {fixed: {class: 'tabs-navigation--white tabs-navigation--fixed'}}
+- extensions = {colors: colors, types: types}
+.library__anchor-helper{id: block_name.to_s.parameterize}
+%section.library__section
+  %h2 #{block_name.to_s.titleize}
+  .content--markdown
+    :markdown
+      Can display content in tabs.
+  - extensions.each do |title, types|
+    .library__anchor-helper{id: "#{block_name.to_s.parameterize}-#{title.to_s.parameterize}"}
+    %h3 #{title.to_s.titleize}
+    .example
+      .example__preview
+        - types.each do |type, attributes|
+          %ul.tabs-navigation{attributes}
+            %li.tabs-navigation__item.tabs-navigation__item--is-active
+              %a.tabs-navigation__link.xs-ph0{href: '#'} Red Pill
+            %li.tabs-navigation__item
+              %a.tabs-navigation__link.xs-ph0{href: '#'} Blue Pill
+          .tabs
+            .box.tabs__target--is-active.xs-p1{class: type == :white_light ? 'box--white-light' : 'box--white'}
+              %h3 #{type.to_s.titleize}
+          .example__preview__spacer
+
+      %pre.example__code
+        = code_highlight(lang: 'haml') do
+          - types.each do |type, attributes|
+            - attributes_without_class = attributes.except(:class)
+            :plain
+              %ul.tabs-navigation.#{attributes[:class].split(' ').join('.')}#{attributes_without_class unless attributes_without_class.empty?}
+                %li.tabs-navigation__item.tabs-navigation__item--is-active
+                  %a.tabs-navigation__link.xs-ph0{href: '#'} Red Pill
+                %li.tabs-navigation__item
+                  %a.tabs-navigation__link.xs-ph0{href: '#'} Blue Pill
+              .tabs
+                .box.#{type == :white_light ? 'box--white-light' : 'box--white'}.tabs__target--is-active.xs-p1.xs-mb1
+                  %h3 #{type.to_s.titleize}

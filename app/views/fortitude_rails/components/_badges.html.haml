@@ -1,0 +1,30 @@
+- block_name = :badges
+- colors = {green_light: {class: 'badge--green-light'}, red_light: {class: 'badge--red-light'}, blue_light: {class: 'badge--blue-light'}, orange_light: {class: 'badge--orange-light'}, yellow: {class: 'badge--yellow'}, white_light: {class: 'badge--white-light'}, white_dark: {class: 'badge--white-dark'}}
+- types = {pill: {class: 'badge--green-light badge--pill'}}
+- extensions = {colors: colors, types: types}
+.library__anchor-helper{id: block_name.to_s.parameterize}
+%section.library__section
+  %h2 #{block_name.to_s.titleize}
+  .content--markdown
+    :markdown
+      Colors are applied as a separate class to avoid fighting the cascade. Coming soon: a `.pill` class as a sensible default that is comprised of `.badge` and `.badge--pill`.
+  = library_example title: 'Colors' do |example|
+    - colors.each do |color, attributes|
+      %span.badge{attributes} #{color.to_s.titleize}
+
+    - example.call :mixin, colors, -> (*args) do
+      - color = args.first.first.to_s.gsub('_', '-')
+      :plain
+        .my-#{color}-badge {
+          @include fortitude-badge;
+          @include fortitude-intent-theme(#{color});
+        }
+
+  = library_example title: 'Types' do |example|
+    %span.badge.badge--pill.badge--green-light Pill
+    - example.call :mixin, -> do
+      :plain
+        .my-pill-badge {
+          @include fortitude-badge(pill);
+          @include fortitude-intent-theme(green-light);
+        }

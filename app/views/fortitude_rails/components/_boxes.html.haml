@@ -1,0 +1,28 @@
+- block_name = :boxes
+- colors = {blue_light: {class: 'box--blue-light'}, white: {class: 'box--white'}, white_dark: {class: 'box--white-dark'}, white_light: {class: 'box--white-light'}, black_dark: {class: 'box--black-dark'}, red_light: {class: 'box--red-light'}, yellow_light: {class: 'box--yellow-light'}, black_light: {class: 'box--black-light'}}
+- types = {rounded: {class: 'box--rounded box--blue-light'}}
+- extensions = {colors: colors, types: types}
+.library__anchor-helper{id: block_name.to_s.parameterize}
+%section.library__section
+  %h2 #{block_name.to_s.titleize}
+  .content--markdown
+    :markdown
+      Used to wrap sections of content.
+  - extensions.each do |title, types|
+    .library__anchor-helper{id: "#{block_name.to_s.parameterize}-#{title.to_s.parameterize}"}
+    %h3 #{title.to_s.titleize}
+    .example
+      .example__preview
+        - types.each do |type, attributes|
+          .box.xs-p1{attributes}
+            %h1.xs-alpha.xs-mb1 #{type.to_s.titleize}
+            %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia corrupti consectetur, vel atque in amet laudantium a consequuntur nostrum! Nam quidem, harum. Quasi commodi non modi eligendi consequatur natus illo.
+          .example__preview__spacer
+
+      %pre.example__code
+        = code_highlight(lang: 'haml') do
+          - types.each do |type, attributes|
+            - attributes_without_class = attributes.except(:class)
+            :plain
+              .box.#{attributes[:class].split(' ').join('.')}#{attributes_without_class unless attributes_without_class.empty?}
+                #{type.to_s.titleize}

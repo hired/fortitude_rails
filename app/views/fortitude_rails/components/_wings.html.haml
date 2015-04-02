@@ -1,21 +1,19 @@
-.layout__item><
-  %h2.text-black-light.xs-beta.xs-mbh0 Wings
-  %hr.text-gray-light.xs-pth0.xs-mb1
-.layout__item.xs-mb2><
-  %p.xs-mbh0 Who doesn't want to just fly? Wings serve as both a divider and explainer.
-  %pre
-    %code.scss
-      :preserve
-            .wings                      // container class for wings
-            .wings--gray-light          // colors - also --white, and --white-dark
-            .wings--thin                // make the wings a little smaller, vertically
-              .wings__wing              // place before and after wings__target
-              .wings__target            // words contained in the wings
-              .wings__target--narrow    // add to wings__target for more narrow
+- block_name = :wings
+- colors = {white_dark: {class: 'wings--white-dark'}, white: {class: 'wings--white'}, gray: {class: 'wings--gray'}, black: {class: 'wings--black'}}
+- sizes = {thin: {class: 'wings--black wings--thin'}}
+- extensions = {colors: colors, sizes: sizes}
+.library__anchor-helper{id: block_name.to_s.parameterize}
+%section.library__section
+  %h2 #{block_name.to_s.titleize}
+  .content--markdown
+    :markdown
+      Can display text between lines.
+  - extensions.each do |title, types|
+    .library__anchor-helper{id: "#{block_name.to_s.parameterize}-#{title.to_s.parameterize}"}
+    = library_example title: title.to_s.titleize do |example|
+      - types.each do |type, attributes|
+        .wings{attributes}
+          .wings__wing
+          %h3.wings__target.text-black-light #{type.to_s.titleize}
+          .wings__wing
 
-.layout__item.xs-mb2><
-  - theme_intents.each do |intent|
-    .wings.wings--thin.xs-mb1{class: "wings--#{intent}"}
-      .wings__wing
-      %span.wings__target.wings__target--narrow.xs-epsilon.text-gray.text-light Wings!
-      .wings__wing

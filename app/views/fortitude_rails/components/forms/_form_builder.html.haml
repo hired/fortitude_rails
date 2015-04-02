@@ -1,0 +1,27 @@
+.library__anchor-helper#forms-form_builder
+%h3 Form Builder
+.content--markdown
+  :markdown
+    We also have a [Form Builder](http://guides.rubyonrails.org/form_helpers.html#customizing-form-builders) for Rails, which will automatically wrap fields in a `.field` div. If there are errors on that field, it will apply `.field--invalid` and add the error message in a `.field__message`
+
+.example
+  %pre.example__code
+    = code_highlight(lang: 'haml') do
+      :plain
+        .field                // wrapper for all input fields - makes
+                              // labels and field messages line up as expected
+          %label.label        // aligns label messages
+          %input.text-input   // normalizes all text inputs
+          %input.input--full  // makes input fields full width; always use this
+          .field__message     // use for help text or error messages
+        .field--invalid       // used for fields with errors
+          .field__message     // will display angry warning text
+
+.example
+  %pre.example__code
+    = code_highlight(lang: 'haml') do
+      :plain
+        = form_for @model, builder: FortitudeFormBuilder do |f|
+          = f.field :name do
+            = f.label :name, 'Your name:'
+            = f.text_field :name, class: 'text-input input--full', placeholder: 'Full Name'

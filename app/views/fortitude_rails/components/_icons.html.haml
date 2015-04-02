@@ -1,0 +1,24 @@
+- block_name = :icons
+- types = {burger: {class: 'icon--burger'}, carat: {class: 'icon--carat'}, check_black: {class: 'icon--check-black'}, check: {class: 'icon--check'}, circle_check: {class: 'icon--circle-check'}, circle_cross: {class: 'icon--circle-cross'}, circle_question: {class: 'icon--circle-question'}, clock: {class: 'icon--clock'}, date: {class: 'icon--date'}, down_arrow: {class: 'icon--down-arrow'}, edit: {class: 'icon--edit'}, facebook: {class: 'icon--facebook'}, file: {class: 'icon--file'}, heart: {class: 'icon--heart'}, helper_awaiting_response: {class: 'icon--helper-awaiting-response'}, helper_final_offer: {class: 'icon--helper-final-offer'}, helper_needs_review: {class: 'icon--helper-needs-review'}, helper_needs_revision: {class: 'icon--helper-needs-revision'}, helper_needs_scheduling: {class: 'icon--helper-needs-scheduling'}, helper_scheduled_interview: {class: 'icon--helper-scheduled-interview'}, hired_dark: {class: 'icon--hired-dark'}, hired: {class: 'icon--hired'}, inbox_done: {class: 'icon--inbox-done'}, inbox_offers: {class: 'inbox-offers'}, inbox: {class: 'icon--inbox'}, link_arrow_gray: {class: 'icon--link-arrow-gray'}, linkedin: {class: 'icon--linkedin'}, loading: {class: 'icon--loading'}, magnifier: {class: 'icon--magnifier'}, marker: {class: 'icon--marker'}, maximize: {class: 'icon--maximize'}, menu: {class: 'icon--menu'}, minimize: {class: 'icon--minimize'}, mobile_chevron: {class: 'icon--mobile-chevron'}, note: {class: 'icon--note'}, overflow: {class: 'icon--overflow'}, photo_upload: {class: 'icon--photo-upload'}, placeholder_logo: {class: 'icon--placeholder-logo'}, placeholder_photo: {class: 'icon--placeholder-photo'}, position: {class: 'icon--position'}, star_active: {class: 'icon--star-active'}, star: {class: 'icon--star'}, trash: {class: 'icon--trash'}, winning_summary: {class: 'icon--winning-summary'}, x_big: {class: 'icon--x-big'}}
+- extensions = {types: types}
+.library__anchor-helper{id: block_name.to_s.parameterize}
+%section.library__section
+  %h2 #{block_name.to_s.titleize}
+  .content--markdown
+    :markdown
+      Should be used for actions that will cause any significant change to data or interactions in your app.
+  - extensions.each do |title, types|
+    .library__anchor-helper{id: "#{block_name.to_s.parameterize}-#{title.to_s.parameterize}"}
+    %h3 #{title.to_s.titleize}
+    .example
+      .example__preview
+        - types.each do |type, attributes|
+          .xs-inset2
+            %img.icon.xs-mr1{attributes.merge(src: spacer)} #{type.to_s.titleize}
+          .example__preview__spacer
+
+      %pre.example__code
+        = code_highlight(lang: 'haml') do
+          - types.each do |type, attributes|
+            :plain
+              %img.icon.#{attributes[:class].split(' ').join('.')}{src: spacer} #{type.to_s.titleize}

@@ -1,0 +1,32 @@
+.library__anchor-helper#forms-radio_inputs
+= library_example title: 'Radio Inputs' do |example|
+  .field
+    %input.radio-input{type: 'radio'}
+    %label Default
+
+  .field
+    %input.radio-input{type: 'radio', checked: true}
+    %label Checked
+
+  .field
+    %input.radio-input{type: 'radio', disabled: true}
+    %label Disabled
+
+  .field.field--invalid.field--required
+    %input.radio-input{type: 'radio'}
+    %label Error
+    .field__message can't be blank
+
+  - example.call :form_builder, -> do
+    :plain
+      = f.field :default do
+        = f.label :default
+        = f.radio_button :default, class: 'radio-input'
+
+      = f.field :checked do
+        = f.label :checked
+        = f.radio_button :checked, class: 'radio-input', checked: true
+
+      = f.field :disabled do
+        = f.label :disabled
+        = f.radio_button :disabled, class: 'radio-input', disabled: true

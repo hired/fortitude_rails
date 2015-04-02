@@ -1,0 +1,14 @@
+.library__anchor-helper#typography-links
+%h3 Links
+.example
+  .example__preview
+    %a{href: '#'} Link
+    .example__preview__spacer
+    %a.link--muted{href: '#'} Muted Link
+    .example__preview__spacer
+
+  .example__code
+    %pre
+      = code_highlight(lang: 'haml') do
+        %a{href: '#'} Link
+        %a.link--muted{href: '#'} Muted Link

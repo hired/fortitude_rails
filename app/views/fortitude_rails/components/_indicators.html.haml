@@ -1,0 +1,19 @@
+- block_name = :indicators
+- colors = {green_light: {class: 'indicator--green-light'}, red_light: {class: 'indicator--red-light'}, blue_light: {class: 'indicator--blue-light'}, orange_light: {class: 'indicator--orange-light'}, yellow: {class: 'indicator--yellow'}, white_light: {class: 'indicator--white-light'}, white_dark: {class: 'indicator--white-dark'}}
+- extensions = {colors: colors}
+.library__anchor-helper{id: block_name.to_s.parameterize}
+%section.library__section
+  %h2 #{block_name.to_s.titleize}
+  .content--markdown
+    :markdown
+      Colors are applied as a separate class to avoid fighting the cascade.
+  - extensions.each do |title, types|
+    .library__anchor-helper{id: "#{block_name.to_s.parameterize}-#{title.to_s.parameterize}"}
+    = library_example title: title.to_s.titleize do |example|
+      - types.each do |type, attributes|
+        .example__preview__item
+          %span.indicator{attributes} •
+          #{type.to_s.titleize}
+
+
+

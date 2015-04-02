@@ -1,0 +1,33 @@
+.library__anchor-helper#forms-select_inputs
+= library_example title: 'Select Inputs' do |example|
+  .field
+    %label.block-label Default
+    %select.select-input.input--full
+      %option.placeholder{value: ''} Select One
+      %option{value: 'One'} One
+
+  .field
+    %label.block-label Disabled
+    %select.select-input.input--full{disabled: "disabled"}
+      %option.placeholder{value: ''} Select One
+      %option{value: 'One'} One
+
+  .field.field--invalid
+    %label.block-label Error
+    %select.select-input.input--full
+      %option.placeholder{value: ''} Select One
+      %option{value: 'One'} One
+    .field__message can't be blank
+  - example.call :form_builder, -> do
+    :plain
+      = f.field :default do
+        = f.label :default, class: 'block-label xs-mbh0'
+        = f.select :default, nil, {}, class: 'select-input input--full' do
+          %option.placeholder{value: ''} Select One
+          = options_for_select(options)
+
+      = f.field :disabled do
+        = f.label :disabled, class: 'block-label xs-mbh0'
+        = f.select :disabled, nil, {}, class: 'select-input input--full', disabled: true do
+          %option.placeholder{value: ''} Select One
+          = options_for_select(options)

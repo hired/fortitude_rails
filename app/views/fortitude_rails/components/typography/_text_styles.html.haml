@@ -1,0 +1,22 @@
+.library__anchor-helper#typography-text-styles
+= library_example title: 'Text Styles' do |example|
+  %strong strong text
+  .example__preview__spacer
+  %em italic text
+  .example__preview__spacer
+  %span.text-underline underline text
+  .example__preview__spacer
+  %span.text-line-through strike through text
+  .example__preview__spacer
+  %span.text-muted muted text
+  .example__preview__spacer
+  %small small text
+  .example__preview__spacer
+
+  - example.call :html, -> do
+    %strong strong text
+    %em italic text
+    %span.text-underline underline text
+    %span.text-line-through strike through text
+    %span.text-muted muted text
+    %small small text

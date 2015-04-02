@@ -1,0 +1,107 @@
+- # used anytime you want to show an image next to
+.library__anchor-helper#media
+%section.library__section.library__section--media
+  %h2 Media Block
+  %h5
+    Media blocks stay aligned at the top, suitable for many common `.*-3of12 and .*-9of12` use layout__item cases.
+  = library_example title: 'Default' do |example|
+    .media
+      .media__object
+        .grid-tile.grid-tile--grow-on-hover
+      .media__body
+        .grid-tile.grid-tile--grow-on-hover
+          Mouse over these & see how the opposite block stays at the top
+    - example.call :mixin, -> do
+      :plain
+        .my-media {
+          @include fortitude-media;
+        }
+
+        .my-media__object {
+          @include fortitude-media__object;
+        }
+
+        .my-media__body {
+          @include fortitude-media__body;
+        }
+
+  %h2 Media Extensions
+
+  = library_example title: 'Small Gutter' do |example|
+    .media.media--small
+      .media__object
+        .grid-tile.grid-tile--grow-on-hover
+      .media__body
+        .grid-tile.grid-tile--grow-on-hover
+    - example.call :mixin, -> do
+      :plain
+        .my-media {
+          @include fortitude-media;
+        }
+
+        .my-media__object {
+          @include fortitude-media__object(small);
+        }
+
+        .my-media__body {
+          @include fortitude-media__body;
+        }
+  = library_example title: 'Large Gutter' do |example|
+    .media.media--large
+      .media__object
+        .grid-tile.grid-tile--grow-on-hover
+      .media__body
+        .grid-tile.grid-tile--grow-on-hover
+    - example.call :mixin, -> do
+      :plain
+        .my-thing {
+          @include fortitude-media;
+        }
+
+        .my-media__object {
+          @include fortitude-media__object(large);
+        }
+
+        .my-media__body {
+          @include fortitude-media__body;
+        }
+  = library_example title: 'Flush' do |example|
+    .media.media--flush
+      .media__object
+        .grid-tile.grid-tile--grow-on-hover
+      .media__body
+        .grid-tile.grid-tile--grow-on-hover
+          no gutters allowed
+    - example.call :mixin, -> do
+      :plain
+        .my-media {
+          @include fortitude-media;
+        }
+
+        .my-media__object {
+          @include fortitude-media__object(flush);
+        }
+
+        .my-media__body {
+          @include fortitude-media__body;
+        }
+  = library_example title: 'Responsive' do |example|
+    .media.media--respmsive
+      .media__object
+        .grid-tile.grid-tile--grow-on-hover
+      .media__body
+        .grid-tile.grid-tile--grow-on-hover
+          It's best to see this one on a small viewport
+    - example.call :mixin, -> do
+      :plain
+        .my-media {
+          @include fortitude-media;
+        }
+
+        .my-media__object {
+          @include fortitude-media__object(responsive);
+        }
+
+        .my-media__body {
+          @include fortitude-media__body;
+        }

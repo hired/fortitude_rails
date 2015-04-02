@@ -1,0 +1,17 @@
+- block_name = :tooltips
+- types = {top: {class: 'tooltip--top', data: {tooltip: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'}}, right: {class: 'tooltip--right', data: {tooltip: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'}}, bottom: {class: 'tooltip--bottom', data: {tooltip: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'}}, left: {class: 'tooltip--left', data: {tooltip: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'}}}
+- extensions = {types: types}
+.library__anchor-helper{id: block_name.to_s.parameterize}
+%section.library__section
+  %h2 #{block_name.to_s.titleize}
+  .content--markdown
+    :markdown
+      Can display information on hover
+  - extensions.each do |title, types|
+    .library__anchor-helper{id: "#{block_name.to_s.parameterize}-#{title.to_s.parameterize}"}
+    = library_example title: title.to_s.titleize do |example|
+      - types.each do |type, attributes|
+        .example__preview__item
+          %a.tooltip{attributes}
+            #{type.to_s.titleize}
+

@@ -1,0 +1,107 @@
+- # used only when you need to align the text middle
+.library__anchor-helper#flag
+%section.library__section
+  %h2 Flag Block
+  %h5
+    Flags are aligned vertically in the middle, so use a flag when you find yourself needing a `layout--middle`
+    with `.*-3of12` and `.*-9of12` layout__item classes.
+  .example
+    .example__preview
+      .flag
+        .flag__object
+          .grid-tile.grid-tile--grow-on-hover
+        .flag__body
+          .grid-tile.grid-tile--grow-on-hover
+            Mouse over these & see how the opposite block stays in the middle
+
+    %pre.example__code
+      = code_highlight(lang: :haml) do
+        :plain
+          .flag
+            .flag__object
+              .grid-tile
+            .flag__body
+              .grid-tile
+
+  %h2 Flag Extensions
+  = library_example title: 'Small Gutter' do |example|
+    .flag.flag--small
+      .flag__object
+        .grid-tile.grid-tile--grow-on-hover
+      .flag__body
+        .grid-tile.grid-tile--grow-on-hover
+    - example.call :mixin, -> do
+      :plain
+        .my-flag {
+          @include fortitude-flag;
+        }
+
+        .my-flag__object {
+          @include fortitude-flag__object;
+          @include fortitude-flag__object--small;
+        }
+        .my-flag__body {
+          @include fortitude-flag__body;
+        }
+  %pre.example__code
+  = library_example title: 'Large Gutter' do |example|
+    .flag.flag--large
+      .flag__object
+        .grid-tile.grid-tile--grow-on-hover
+      .flag__body
+        .grid-tile.grid-tile--grow-on-hover
+    - example.call :mixin, -> do
+      :plain
+        .my-flag {
+          @include fortitude-flag;
+        }
+
+        .my-flag__object {
+          @include fortitude-flag__object;
+          @include fortitude-flag__object--large;
+        }
+        .my-flag__body {
+          @include fortitude-flag__body;
+        }
+  %pre.example__code
+  = library_example title: 'Flush' do |example|
+    .flag.flag--flush
+      .flag__object
+        .grid-tile.grid-tile--grow-on-hover
+      .flag__body
+        .grid-tile.grid-tile--grow-on-hover
+          no gutters allowed
+    - example.call :mixin, -> do
+      :plain
+        .my-flag {
+          @include fortitude-flag;
+        }
+
+        .my-flag__object {
+          @include fortitude-flag__object;
+          @include fortitude-flag__object--flush;
+        }
+        .my-flag__body {
+          @include fortitude-flag__body;
+        }
+  = library_example title: 'Reverse' do |example|
+    .flag.flag--rev
+      .flag__object
+        .grid-tile.grid-tile--grow-on-hover
+      .flag__body
+        .grid-tile.grid-tile--grow-on-hover
+          It's backwards!
+    - example.call :mixin, -> do
+      :plain
+        .my-flag {
+          @include fortitude-flag;
+        }
+
+        .my-flag__object {
+          @include fortitude-flag__object;
+          @include fortitude-flag__object--rev;
+        }
+        .my-flag__body {
+          @include fortitude-flag__body;
+          @include fortitude-flag__body--rev;
+        }

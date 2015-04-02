@@ -1,0 +1,29 @@
+.library__anchor-helper#typography-headings
+%h3 Headings
+.content--markdown
+  :markdown
+    Use the respective `h$` elements or the responsive text size classes.
+.example
+  .example__preview
+    %h1.xs-alpha Heading One
+    .example__preview__spacer
+    %h2.xs-beta Heading Two
+    .example__preview__spacer
+    %h3.xs-gamma Heading Three
+    .example__preview__spacer
+    %h4.xs-delta Heading Four
+    .example__preview__spacer
+    %h5.xs-epsilon Heading Five
+    .example__preview__spacer
+    %h6.xs-zeta Heading Six
+    .example__preview__spacer
+
+  %pre.example__code
+    = code_highlight(lang: 'haml') do
+      :plain
+        %h1.xs-alpha Heading One
+        %h2.xs-beta Heading Two
+        %h3.xs-gamma Heading Three
+        %h4.xs-delta Heading Four
+        %h5.xs-epsilon Heading Five
+        %h6.xs-zeta Heading Six
