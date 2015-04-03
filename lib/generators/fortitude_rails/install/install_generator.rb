@@ -34,6 +34,16 @@ module FortitudeRails
         require_css
       end
 
+      def add_fontawesome_to_gemfile
+        gem 'font-awesome-sass'
+      end
+
+      def bundle_install
+        Bundler.with_clean_env do
+          run 'bundle install'
+        end
+      end
+
       private
 
       def file_name
@@ -53,18 +63,36 @@ module FortitudeRails
       end
 
       def require_css
-        if css_manifest_requires_tree?
-          raise 'WARNING: YOU MUST REMOVE `require_tree` from your CSS manifest!'
+        if css_manifest_file.match(/require_tree/)
+          replace_require_tree_with_require_fortitude
+        elsif css_manifest_file.match(/require_self/)
+          insert_into_file css_manifest, " *= require base\n", before: " *= require_self"
+        else
+          say "Please manually add 'require base' to your manifest: #{css_manifest}."
         end
-        insert_into_file css_manifest, ' *= require fortitude\n', after: 'require_self\n'
       end
 
-      def css_manifest_requires_tree?
-        File.read(css_manifest).match(/require_tree\s+\.\s*$/)
+      def css_manifest_file
+        @css_manifest_file ||= File.read(css_manifest)
       end
 
       def css_manifest
         "app/assets/stylesheets/#{manifest_name}.css"
+      end
+
+      def replace_require_tree_with_require_fortitude
+        path = Rails.root + css_manifest
+        temp_file = Tempfile.new('foo')
+        begin
+
+          temp_file.puts css_manifest_file.gsub(/require_tree/, 'require fortitude')
+          temp_file.close
+          FileUtils.mv(temp_file.path, path)
+        ensure
+          temp_file.close
+          temp_file.unlink
+        end
+        say "Replaced `require_tree` with require fortitude` in #{css_manifest}."
       end
     end
   end

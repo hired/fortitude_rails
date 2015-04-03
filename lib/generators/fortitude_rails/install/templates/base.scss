@@ -1,8 +1,15 @@
+// iconfont
 @import "font-awesome-sprockets";
 @import "font-awesome";
+
+// fortitude overrides
 @import "settings/*";
-// @import "fortitude"; if you don't want bootstrap with the provided theme
+
+// fortitude
+// @import "fortitude"; if you don't want to bootstrap with the provided theme
 @import "fortitude/theme";
+
+// your custom API
 @import "api/tools/*";
 @import "api/components/*";
 @import "components/*";
