@@ -53,9 +53,10 @@ module FortitudeRails
       end
 
       def require_css
-        unless css_manifest_requires_tree?
-          insert_into_file css_manifest, ' *= require fortitude\n', after: 'require_self\n'
+        if css_manifest_requires_tree?
+          raise 'WARNING: YOU MUST REMOVE `require_tree` from your CSS manifest!'
         end
+        insert_into_file css_manifest, ' *= require fortitude\n', after: 'require_self\n'
       end
 
       def css_manifest_requires_tree?

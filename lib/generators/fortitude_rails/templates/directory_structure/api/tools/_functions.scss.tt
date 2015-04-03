@@ -1,5 +1,4 @@
-// pull in upstream helper functions without the $fortitude-* prefix
-@import 'fortitude/api/tools/functions/without-namespace';
+@import "fortitude/api/tools/functions/without-namespace";
 
 // @function calculateSomethingSpecific { }
 //

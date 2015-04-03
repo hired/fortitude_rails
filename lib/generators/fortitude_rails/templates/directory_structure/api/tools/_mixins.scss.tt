@@ -1,4 +1,4 @@
-@import 'fortitude/api/tools/mixins/without-namespace';
+@import "fortitude/api/tools/mixins/without-namespace";
 
 // @mixin sprite-icon { }
 //

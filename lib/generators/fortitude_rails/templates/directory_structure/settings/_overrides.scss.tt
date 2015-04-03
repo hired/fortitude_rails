@@ -1,3 +1,7 @@
+@import "fortitude/settings/defaults";
+@import "fortitude/settings/defaults/without-namespace";
+@import "fortitude/settings/defaults/with-all-features";
+
 //
 // You can override all fortitude variables as well as the base fortitude theme (if you're bootstrapping with it).
 //
@@ -7,7 +11,4 @@
 //
 // Check out http://fortitude.io/docs#settings to see what can be overridden.
 // This file gets imported before fortitude compiles, so you can pretty much change whatever!
-
-
-@import 'fortitude/settings/defaults/without-namespace';
-@import 'fortitude/settings/defaults/with-all-features';
+//
