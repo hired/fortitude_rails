@@ -1,0 +1,32 @@
+!!! 5
+%html(lang="en")
+  %head
+    %meta(charset="utf-8")
+    %meta(http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1")
+    %meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    %title= content_for?(:title) ? yield(:title) : "<%= app_name %>"
+    = csrf_meta_tags
+    = stylesheet_link_tag "application", :media => "all"
+    = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
+    = javascript_include_tag "application"
+
+
+  %body
+    %nav.navigationbar
+      .container
+        .navigationbar__header
+          %a.navigationbar__header__logo{href: "/"} <%= app_name %>
+        .navigationbar__toggle
+          .navigationbar__toggle__element
+            %i.fa.fa-bars
+          %input.navigationbar__toggle__helper{type: "checkbox"}/
+          %ul.navigationbar__navigation
+            %li.navigationbar__item
+              %a.navigationbar__link{href: "/about"} About
+            %li.navigationbar__item
+              %a.navigationbar__link{href: "/login"} Sign in
+
+    .container
+      = yield
+      %footer
+        %p &copy; Company <%= Date.today.year %>
