@@ -1,0 +1,11 @@
+<% FortitudeRails.breakpoint_names.each do |size| %>
+<% (1..FortitudeRails.number_of_columns).each do |grid_unit| %>
+
+@mixin <%= size %>-<%= grid_unit %> {
+  @include breakpoint(<%= size %>) {
+    min-height: fortitude-grid-unit(<%= grid_unit %>);
+  }
+}
+
+<% end %>
+<% end %>

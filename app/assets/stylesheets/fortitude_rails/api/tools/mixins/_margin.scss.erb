@@ -1,0 +1,101 @@
+<% FortitudeRails.breakpoint_names.each do |size| %>
+
+<% (0..FortitudeRails.number_of_columns).each do |grid_unit| %>
+
+<% [1, -1].each do |margin_direction| %>
+
+<% grid_unit = grid_unit * margin_direction %>
+
+@mixin <%= size %>-mt<%= grid_unit %> {
+  @include breakpoint(<%= size %>) {
+    margin-top: fortitude-grid-unit(<%=grid_unit%>);
+  }
+}
+
+@mixin <%= size %>-mtb<%= grid_unit %> {
+  @include breakpoint(<%= size %>) {
+    margin-top: fortitude-grid-unit(<%=grid_unit%>);
+    margin-bottom: fortitude-grid-unit(<%=grid_unit%>);
+  }
+}
+
+@mixin <%= size %>-mth<%= grid_unit %> {
+  @include breakpoint(<%= size %>) {
+    margin-top: fortitude-grid-unit(<%=grid_unit%>) + fortitude-halve(<%= grid_unit %>);
+  }
+}
+
+@mixin <%= size %>-mtbh<%= grid_unit %> {
+  @include breakpoint(<%= size %>) {
+    margin-top: fortitude-grid-unit(<%=grid_unit%>);
+    margin-bottom: fortitude-grid-unit(<%=grid_unit%>) + fortitude-halve(<%= grid_unit %>);
+  }
+}
+
+@mixin <%= size %>-mb<%= grid_unit %> {
+  @include breakpoint(<%= size %>) {
+    margin-bottom: fortitude-grid-unit(<%=grid_unit%>);
+  }
+}
+
+@mixin <%= size %>-mbh<%= grid_unit %> {
+  @include breakpoint(<%= size %>) {
+    margin-bottom: fortitude-grid-unit(<%=grid_unit%>) + fortitude-halve(<%= grid_unit %>);
+  }
+}
+
+@mixin <%= size %>-mr<%= grid_unit %> {
+  @include breakpoint(<%= size %>) {
+    margin-right: fortitude-grid-unit(<%=grid_unit%>);
+  }
+}
+
+@mixin <%= size %>-mrl<%= grid_unit %> {
+  @include breakpoint(<%= size %>) {
+    margin-right: fortitude-grid-unit(<%=grid_unit%>);
+    margin-left: fortitude-grid-unit(<%=grid_unit%>);
+  }
+}
+
+@mixin <%= size %>-mrh<%= grid_unit %> {
+  @include breakpoint(<%= size %>) {
+    margin-right: fortitude-grid-unit(<%=grid_unit%>) + fortitude-halve(<%= grid_unit %>);
+  }
+}
+
+@mixin <%= size %>-mrlh<%= grid_unit %> {
+  @include breakpoint(<%= size %>) {
+    margin-right: fortitude-grid-unit(<%=grid_unit%>);
+    margin-left: fortitude-grid-unit(<%=grid_unit%>) + fortitude-halve(<%= grid_unit %>);
+  }
+}
+
+@mixin <%= size %>-ml<%= grid_unit %> {
+  @include breakpoint(<%= size %>) {
+    margin-left: fortitude-grid-unit(<%=grid_unit%>);
+  }
+}
+
+@mixin <%= size %>-mlh<%= grid_unit %> {
+  @include breakpoint(<%= size %>) {
+    margin-left: fortitude-grid-unit(<%=grid_unit%>) + fortitude-halve(<%= grid_unit %>);
+  }
+}
+
+@mixin <%= size %>-m<%= grid_unit %> {
+  @include breakpoint(<%= size %>) {
+    margin: fortitude-grid-unit(<%= grid_unit %>);
+  }
+}
+
+@mixin <%= size %>-mh<%= grid_unit %> {
+  @include breakpoint(<%= size %>) {
+    margin: fortitude-grid-unit(<%= grid_unit %>) + fortitude-halve(<%= grid_unit %>);
+  }
+}
+
+<% end %>
+
+<% end %>
+
+<% end %>

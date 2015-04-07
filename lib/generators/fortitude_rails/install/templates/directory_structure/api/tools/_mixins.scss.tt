@@ -1,4 +1,5 @@
-@import "fortitude/api/tools/mixins/without-namespace";
+@import "fortitude/api/tools/mixins/without-namespace"; // grab all component mixins
+@import "fortitude_rails/api/tools/mixins"; // grab all responsive helpers
 
 // @mixin sprite-icon { }
 //

@@ -1,0 +1,23 @@
+<% FortitudeRails.breakpoint_names.each do |size| %>
+<% (1..FortitudeRails.number_of_columns).each do |grid_unit| %>
+
+@mixin <%= size %>-float-left {
+  @include breakpoint(<%= size %>) {
+    float: left;
+  }
+}
+
+@mixin <%= size %>-float-right {
+  @include breakpoint(<%= size %>) {
+    float: right;
+  }
+}
+
+@mixin <%= size %>-float-none {
+  @include breakpoint(<%= size %>) {
+    float: none;
+  }
+}
+
+<% end %>
+<% end %>

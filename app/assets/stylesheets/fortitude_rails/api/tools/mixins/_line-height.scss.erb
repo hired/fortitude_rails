@@ -1,0 +1,18 @@
+<% FortitudeRails.breakpoint_names.each do |size| %>
+<% (1..FortitudeRails.number_of_columns).each do |grid_unit| %>
+
+
+@mixin <%= size %>-inset<%= size %> {
+  @include breakpoint(<%= size %>) {
+    line-height: fortitude-strip-unit-if-zero($fortitude-base-line-height * <%= grid_unit %>);
+  }
+}
+
+@mixin <%= size %>-inset<%= size %> {
+  @include breakpoint(<%= size %>) {
+    line-height: fortitude-strip-unit-if-zero($fortitude-base-line-height * <%= grid_unit %> + fortitude-halve($fortitude-base-line-height))
+  }
+}
+
+<% end %>
+<% end %>

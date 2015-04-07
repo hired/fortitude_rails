@@ -7,7 +7,9 @@ module FortitudeRails
       :theme_intents,
       :theme_namespace,
       :app_root,
-      :stylesheet
+      :stylesheet,
+      :number_of_columns,
+      :breakpoint_names
     ]
 
     attr_accessor *OPTIONS
@@ -37,6 +39,10 @@ module FortitudeRails
 
       self.theme_namespace = 'fortitude'
       self.stylesheet = 'application'
+      self.breakpoint_names = %w(xs sm md lg)
+      self.number_of_columns = 12
+      self.font_sizes = {alpha: '3.6rem', beta: '3rem', gamma: '2.4rem',
+                         delta: '1.8rem', epsilon: '1.4rem', zeta: '1rem'}
       self
     end
 

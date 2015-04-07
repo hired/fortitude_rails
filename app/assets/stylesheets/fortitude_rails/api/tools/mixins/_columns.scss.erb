@@ -1,0 +1,32 @@
+<% FortitudeRails.breakpoint_names.each do |size| %>
+<% total_cols = FortitudeRails.number_of_columns %>
+<% (0..total_cols).each do |grid_unit| %>
+$column-unit: fortitude-grid-unit(percentage(<%=grid_unit%> / <%= total_cols %>));
+
+@mixin <%= size %>-<%= grid_unit %>of<%= total_cols %> {
+  @include breakpoint(<%= size %>) {
+    width: $column-unit;
+  }
+}
+
+@mixin <%= size %>-offset<%= grid_unit %>of<%= total_cols %> {
+  @include breakpoint(<%= size %>) {
+    margin-left: $column-unit;
+  }
+}
+
+@mixin <%= size %>-push<%= grid_unit %>of<%= total_cols %> {
+  @include breakpoint(<%= size %>) {
+    left: $column-unit;
+  }
+}
+
+@mixin <%= size %>-pull<%= grid_unit %>of<%= total_cols %> {
+  @include breakpoint(<%= size %>) {
+    right: $column-unit;
+  }
+}
+
+<% end %>
+
+<% end %>

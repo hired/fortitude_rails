@@ -1,0 +1,54 @@
+$border-fraction: 0.1rem;
+
+<% FortitudeRails.breakpoint_names.each do |size| %>
+
+<% (0..1).each do |grid_unit| %>
+
+@mixin <%= size %>-bt<%= grid_unit %> {
+  @include breakpoint(<%= size %>) {
+    border-top-width: fortitude-grid-unit(<%=grid_unit%> * $border-fraction);
+  }
+}
+
+@mixin <%= size %>-btb<%= grid_unit %> {
+  @include breakpoint(<%= size %>) {
+    border-top-width: fortitude-grid-unit(<%=grid_unit%> * $border-fraction);
+    border-bottom-width: fortitude-grid-unit(<%=grid_unit%> * $border-fraction);
+  }
+}
+
+@mixin <%= size %>-bb<%= grid_unit %> {
+  @include breakpoint(<%= size %>) {
+    border-bottom-width: fortitude-grid-unit(<%=grid_unit%> * $border-fraction);
+  }
+}
+
+@mixin <%= size %>-br<%= grid_unit %> {
+  @include breakpoint(<%= size %>) {
+    border-right-width: fortitude-grid-unit(<%=grid_unit%> * $border-fraction);
+  }
+}
+
+@mixin <%= size %>-brl<%= grid_unit %> {
+  @include breakpoint(<%= size %>) {
+    border-right-width: fortitude-grid-unit(<%=grid_unit%> * $border-fraction);
+    border-left-width: fortitude-grid-unit(<%=grid_unit%> * $border-fraction);
+  }
+}
+
+@mixin <%= size %>-bl<%= grid_unit %> {
+  @include breakpoint(<%= size %>) {
+    border-left-width: fortitude-grid-unit(<%=grid_unit%> * $border-fraction);
+  }
+}
+
+
+@mixin <%= size %>-b<%= grid_unit %> {
+  @include breakpoint(<%= size %>) {
+    border: fortitude-grid-unit(<%= grid_unit %>);
+  }
+}
+
+<% end %>
+
+<% end %>

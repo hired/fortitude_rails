@@ -1,0 +1,94 @@
+<% FortitudeRails.breakpoint_names.each do |size| %>
+
+<% (0..FortitudeRails.number_of_columns).each do |grid_unit| %>
+
+@mixin <%= size %>-pt<%= grid_unit %> {
+  @include breakpoint(<%= size %>) {
+    padding-top: fortitude-grid-unit(<%=grid_unit%>);
+  }
+}
+
+@mixin <%= size %>-ptb<%= grid_unit %> {
+  @include breakpoint(<%= size %>) {
+    padding-top: fortitude-grid-unit(<%=grid_unit%>);
+    padding-bottom: fortitude-grid-unit(<%=grid_unit%>);
+  }
+}
+
+@mixin <%= size %>-pth<%= grid_unit %> {
+  @include breakpoint(<%= size %>) {
+    padding-top: fortitude-grid-unit(<%=grid_unit%>) + fortitude-halve(<%= grid_unit %>);;
+  }
+}
+
+@mixin <%= size %>-ptbh<%= grid_unit %> {
+  @include breakpoint(<%= size %>) {
+    padding-top: fortitude-grid-unit(<%=grid_unit%>);
+    padding-bottom: fortitude-grid-unit(<%=grid_unit%>) + fortitude-halve(<%= grid_unit %>);;
+  }
+}
+
+@mixin <%= size %>-pb<%= grid_unit %> {
+  @include breakpoint(<%= size %>) {
+    padding-bottom: fortitude-grid-unit(<%=grid_unit%>);
+  }
+}
+
+@mixin <%= size %>-pbh<%= grid_unit %> {
+  @include breakpoint(<%= size %>) {
+    padding-bottom: fortitude-grid-unit(<%=grid_unit%>) + fortitude-halve(<%= grid_unit %>);;
+  }
+}
+
+@mixin <%= size %>-pr<%= grid_unit %> {
+  @include breakpoint(<%= size %>) {
+    padding-right: fortitude-grid-unit(<%=grid_unit%>);
+  }
+}
+
+@mixin <%= size %>-prl<%= grid_unit %> {
+  @include breakpoint(<%= size %>) {
+    padding-right: fortitude-grid-unit(<%=grid_unit%>);
+    padding-left: fortitude-grid-unit(<%=grid_unit%>);
+  }
+}
+
+@mixin <%= size %>-prh<%= grid_unit %> {
+  @include breakpoint(<%= size %>) {
+    padding-right: fortitude-grid-unit(<%=grid_unit%>) + fortitude-halve(<%= grid_unit %>);;
+  }
+}
+
+@mixin <%= size %>-prlh<%= grid_unit %> {
+  @include breakpoint(<%= size %>) {
+    padding-right: fortitude-grid-unit(<%=grid_unit%>);
+    padding-left: fortitude-grid-unit(<%=grid_unit%>) + fortitude-halve(<%= grid_unit %>);;
+  }
+}
+
+@mixin <%= size %>-pl<%= grid_unit %> {
+  @include breakpoint(<%= size %>) {
+    padding-left: fortitude-grid-unit(<%=grid_unit%>);
+  }
+}
+
+@mixin <%= size %>-plh<%= grid_unit %> {
+  @include breakpoint(<%= size %>) {
+    padding-left: fortitude-grid-unit(<%=grid_unit%>) + fortitude-halve(<%= grid_unit %>);;
+  }
+}
+
+@mixin <%= size %>-p<%= grid_unit %> {
+  @include breakpoint(<%= size %>) {
+    padding: fortitude-grid-unit(<%= grid_unit %>);
+  }
+}
+@mixin <%= size %>-ph<%= grid_unit %> {
+  @include breakpoint(<%= size %>) {
+    padding: fortitude-grid-unit(<%= grid_unit %>) + fortitude-halve(<%= grid_unit %>);
+  }
+}
+
+<% end %>
+
+<% end %>

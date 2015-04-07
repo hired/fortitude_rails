@@ -1,3 +1,4 @@
+require 'coderay'
 module FortitudeRails::LibraryHelper
   SPACER_DATA_URI = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'.freeze
 
@@ -7,7 +8,7 @@ module FortitudeRails::LibraryHelper
 
   def code_highlight(options = {})
     content = capture_haml { yield }
-    content_tag :code, CodeRay.scan(content, options[:lang]).html.html_safe, class: ['code--highlight', options[:lang]]
+    content_tag :code, ::CodeRay.scan(content, options[:lang]).html.html_safe, class: ['code--highlight', options[:lang]]
   end
 
   def library_example(title: nil)

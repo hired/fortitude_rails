@@ -1,0 +1,12 @@
+<% FortitudeRails.breakpoint_names.each do |size| %>
+<% FortitudeRails.font_sizes.each do |name, value| %>
+
+@mixin <%= size %>-<%= name %> {
+  @include breakpoint(<%= size %>) {
+    font-size: <%= value %>;
+  }
+}
+
+<% end %>
+<% end %>
+

@@ -1,5 +1,9 @@
 @import "fortitude/api/tools/functions/without-namespace";
 
+@function fortitude-grid-unit($unit) {
+  @return fortitude-strip-unit-if-zero($unit * $base-spacing-unit);
+}
+
 // @function calculateSomethingSpecific { }
 //
 // put your SASS function API here
