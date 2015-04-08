@@ -1,30 +1,39 @@
-<% FortitudeRails.breakpoint_names.each do |size| %>
 <% total_cols = FortitudeRails.number_of_columns %>
+@mixin columns($unit: 1, $size: 'xs', $total-cols: <%= total_cols %>) {
+  @include breakpoint($size) {
+    width: fortitude-grid-unit(percentage($unit / $total-cols))
+  }
+}
+
+@mixin columns-offset($unit: 1, $size: 'xs', $total-cols: <%= total_cols %>) {
+  margin-left: fortitude-grid-unit(percentage($unit / $total-cols));
+}
+
+@mixin columns-push($unit: 1, $size: 'xs', $total-cols: <%= total_cols %>) {
+  left: fortitude-grid-unit(percentage($unit / $total-cols));
+}
+
+@mixin columns-pull($unit: 1, $size: 'xs', $total-cols: <%= total_cols %>) {
+  right: fortitude-grid-unit(percentage($unit / $total-cols));
+}
+
+<% FortitudeRails.breakpoint_names.each do |size| %>
 <% (0..total_cols).each do |grid_unit| %>
-$column-unit: fortitude-grid-unit(percentage(<%=grid_unit%> / <%= total_cols %>));
 
 @mixin <%= size %>-<%= grid_unit %>of<%= total_cols %> {
-  @include breakpoint(<%= size %>) {
-    width: $column-unit;
-  }
+  @include columns($unit: <%= grid_unit %>, $size: '<%= size %>');
 }
 
 @mixin <%= size %>-offset<%= grid_unit %>of<%= total_cols %> {
-  @include breakpoint(<%= size %>) {
-    margin-left: $column-unit;
-  }
+  @include columns-offset($unit: <%= grid_unit %>, $size: '<%= size %>');
 }
 
 @mixin <%= size %>-push<%= grid_unit %>of<%= total_cols %> {
-  @include breakpoint(<%= size %>) {
-    left: $column-unit;
-  }
+  @include columns-push($unit: <%= grid_unit %>, $size: '<%= size %>');
 }
 
 @mixin <%= size %>-pull<%= grid_unit %>of<%= total_cols %> {
-  @include breakpoint(<%= size %>) {
-    right: $column-unit;
-  }
+  @include columns-pull($unit: <%= grid_unit %>, $size: '<%= size %>');
 }
 
 <% end %>

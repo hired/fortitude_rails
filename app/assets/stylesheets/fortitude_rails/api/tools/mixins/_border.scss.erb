@@ -1,52 +1,51 @@
-$border-fraction: 0.1rem;
+$border-fraction: 0.1;
+
+@mixin border($unit: 1, $position: 'none', $screen: 'xs') {
+  @debug $unit;
+  @include breakpoint($screen) {
+    @if $position == 'none' {
+      border-width: fortitude-grid-unit($unit * $border-fraction);
+    }
+
+    @if $position != 'none' {
+      border-#{$position}-width: fortitude-grid-unit($unit * $border-fraction);
+    }
+  }
+}
 
 <% FortitudeRails.breakpoint_names.each do |size| %>
 
 <% (0..1).each do |grid_unit| %>
 
 @mixin <%= size %>-bt<%= grid_unit %> {
-  @include breakpoint(<%= size %>) {
-    border-top-width: fortitude-grid-unit(<%=grid_unit%> * $border-fraction);
-  }
+  @include border($unit: <%= grid_unit %>, $position: 'top', $screen: '<%= size %>');
 }
 
 @mixin <%= size %>-btb<%= grid_unit %> {
-  @include breakpoint(<%= size %>) {
-    border-top-width: fortitude-grid-unit(<%=grid_unit%> * $border-fraction);
-    border-bottom-width: fortitude-grid-unit(<%=grid_unit%> * $border-fraction);
-  }
+  @include border($unit: <%= grid_unit %>, $position: 'top', $screen: '<%= size %>');
+  @include border($unit: <%= grid_unit %>, $position: 'bottom', $screen: '<%= size %>');
 }
 
 @mixin <%= size %>-bb<%= grid_unit %> {
-  @include breakpoint(<%= size %>) {
-    border-bottom-width: fortitude-grid-unit(<%=grid_unit%> * $border-fraction);
-  }
+  @include border($unit: <%= grid_unit %>, $position: 'bottom', $screen: '<%= size %>');
 }
 
 @mixin <%= size %>-br<%= grid_unit %> {
-  @include breakpoint(<%= size %>) {
-    border-right-width: fortitude-grid-unit(<%=grid_unit%> * $border-fraction);
-  }
+  @include border($unit: <%= grid_unit %>, $position: 'right', $screen: '<%= size %>');
 }
 
 @mixin <%= size %>-brl<%= grid_unit %> {
-  @include breakpoint(<%= size %>) {
-    border-right-width: fortitude-grid-unit(<%=grid_unit%> * $border-fraction);
-    border-left-width: fortitude-grid-unit(<%=grid_unit%> * $border-fraction);
-  }
+  @include border($unit: <%= grid_unit %>, $position: 'right', $screen: '<%= size %>');
+  @include border($unit: <%= grid_unit %>, $position: 'left', $screen: '<%= size %>');
 }
 
 @mixin <%= size %>-bl<%= grid_unit %> {
-  @include breakpoint(<%= size %>) {
-    border-left-width: fortitude-grid-unit(<%=grid_unit%> * $border-fraction);
-  }
+  @include border($unit: <%= grid_unit %>, $position: 'left', $screen: '<%= size %>');
 }
 
 
 @mixin <%= size %>-b<%= grid_unit %> {
-  @include breakpoint(<%= size %>) {
-    border: fortitude-grid-unit(<%= grid_unit %>);
-  }
+  @include border($unit: <%= grid_unit %>, $screen: '<%= size %>');
 }
 
 <% end %>

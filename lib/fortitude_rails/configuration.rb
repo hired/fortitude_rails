@@ -9,7 +9,8 @@ module FortitudeRails
       :app_root,
       :stylesheet,
       :number_of_columns,
-      :breakpoint_names
+      :breakpoint_names,
+      :font_sizes
     ]
 
     attr_accessor *OPTIONS
